@@ -1,0 +1,21 @@
+/**
+Placeholders
+Chrome/Opera/Safari */
+::-webkit-input-placeholder { 
+    color: $color-dark;
+}
+
+// Firefox 19+
+::-moz-placeholder { 
+    color: $color-dark;
+}
+
+// IE 10+ 
+:-ms-input-placeholder {
+    color: $color-dark;
+}
+
+// Firefox 18-
+:-moz-placeholder { 
+    color: $color-dark;
+}
