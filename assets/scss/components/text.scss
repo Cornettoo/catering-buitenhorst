@@ -1,0 +1,15 @@
+.text {
+    &-columns {
+        display: flex;
+        flex-flow: wrap;
+        width: 100%;
+        margin: 0 0 3rem 0;
+        &__column {
+            width: 50%;
+        }
+    }
+    p {
+        margin-bottom: 3rem;
+    }
+
+}

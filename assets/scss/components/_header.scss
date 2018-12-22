@@ -1,0 +1,15 @@
+.header {
+    background-size: cover;
+    &.header--text {
+        padding: 20rem 0;
+        background-position: center 20%;
+        h1, h3 {
+            color: $color-white;
+        }
+        h3 {
+            margin: 0 0 5rem 0;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+    }
+}

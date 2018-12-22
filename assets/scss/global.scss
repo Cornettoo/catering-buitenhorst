@@ -112,12 +112,8 @@ section {
 }
 
 // Titels
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 700;
-}
-
-h3, h4, h5, h6 {
-    font-weight: 600;
 }
 
 h1 {
@@ -128,7 +124,9 @@ h1 {
 }
 
 h2 {
-
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }
 
 h3 {
@@ -136,17 +134,43 @@ h3 {
     margin: 1rem 0 2rem;
 }
 
+
 // links
 a {
     color: red;
+}
+
+// List items
+.text {
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            position: relative;
+            list-style: none;
+            padding-left: 1.6rem;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: .6rem;
+                transform: translate3d(-100%, -50%, 0);
+                width: .6rem;
+                height: .2rem;
+                border-radius: 1rem;
+                background-color: $color-dark;
+            }
+        }
+    }
 }
 
 // Buttons
 .button {
     border-radius: 3rem;
     font-weight: 700;
-    padding: 1.2rem 3rem;
+    padding: .9rem 3rem;
     color: $color-white;
+    display: inline-block;
     &:hover {
         background-color: darken($color-primary, 10%);
     }
@@ -228,7 +252,7 @@ a {
     &__hamburger-bar {
         position: relative;
         transform: translateY($bar-spacing);
-        background: $dark;
+        background: $color-dark;
         width: $bar-width;
         height: $bar-height;
         transition: all 0s .3s;
@@ -239,7 +263,7 @@ a {
             position: absolute;
             left: 0;
             top: $bar-spacing;
-            background: $dark;
+            background: $color-dark;
             transition: .3s .3s top cubic-bezier(0.23, 1, 0.32, 1), .3s transform cubic-bezier(0.23, 1, 0.32, 1);
         }
         &:before {
@@ -249,7 +273,7 @@ a {
             position: absolute; 
             left: 0;
             bottom: $bar-spacing;
-            background: $dark;
+            background: $color-dark;
             transition: .3s .3s bottom cubic-bezier(0.23, 1, 0.32, 1), .3s transform cubic-bezier(0.23, 1, 0.32, 1);
         }
     }
@@ -324,21 +348,6 @@ a {
                     opacity: 1;
                 }
             }
-        }
-    }
-}
-
-.header {
-    background-size: cover;
-    &.header--text {
-        padding: 20rem 0;
-        background-position: center 20%;
-        h1, h3 {
-            color: $color-white;
-        }
-        h3 {
-            margin: 0 0 5rem 0;
-            letter-spacing: 3px;
         }
     }
 }
