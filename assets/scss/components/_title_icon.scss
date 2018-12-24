@@ -1,0 +1,24 @@
+// Title icon
+.title-icon {
+    &__wrapper {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+        padding: 4rem 3rem;
+        border-radius: 1rem;
+        background-color: $color-secondary;
+        .item {
+            color: $color-white;
+            text-align: center;
+            width: 25%;
+            h4 {
+                margin-bottom: 0;
+            }
+            i {
+                font-size: 4rem;
+                display: block;
+                margin-bottom: 1.3rem;
+            }
+        }
+    }
+}
