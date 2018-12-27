@@ -1,6 +1,4 @@
 jQuery(function($) {
-    'use strict';
-
     // Window scroll addClass to body
     $(window).on('scroll load resize', function(){
         if( $(window).scrollTop() > 100 ){
@@ -38,16 +36,15 @@ jQuery(function($) {
         }
     }
 
-    var faq = $('.faq__section');
+    var faq = $('.faq');
     if( faq.length > 0 ){
-        close_accordion_section();
         function close_accordion_section() {
-            $('.accordion .title a').removeClass('open');
-            $('.accordion .content').slideUp(300).removeClass('active');
-            $('.accordion').removeClass('active');
+            $('.faq__accordion .faq__title a').removeClass('open');
+            $('.faq__accordion .faq__content').slideUp(300).removeClass('active');
+            $('.faq__accordion').removeClass('active');
         };
 
-        $('.title a').click(function(e) {
+        $('.faq__title a').click(function(e) {
             var currentAttrValue = $(this).attr('href');
 
             if( $(e.target).is('.open') ){
@@ -55,14 +52,12 @@ jQuery(function($) {
             } else{
                 close_accordion_section();
                 $(this).addClass('open');
-                $(this).parents('.accordion').addClass('active');
+                $(this).parents('.faq__accordion').addClass('active');
                 $(this).addClass('open');
-                $('.accordion ' + currentAttrValue).slideDown(300).addClass('active');
+                $('.faq__accordion ' + currentAttrValue).slideDown(300).addClass('active');
             };
 
             e.preventDefault();
         });
     };
-
-    console.log('test');
 });

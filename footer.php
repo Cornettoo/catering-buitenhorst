@@ -1,23 +1,34 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 offset-lg-2 footer__item">
+                    <div class="col-12 col-md-3 offset-md-1 footer__item">
                         <?php 
                         if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : 
                         endif;    
                         ?>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 offset-md-1 offset-lg-0 footer__item">
+                    <div class="col-md-3 footer__item">
                         <?php 
                         if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer2') ) : 
                         endif;
                         ?>
                     </div>
-                    <div class="footer__bottom">
-                        <div class="col">
-                            <p>Copyright</p>
-                            <p>Realisatie door <a href="mailto:cornehuisman@outlook.com" target="_blank">Corné Huisman</a></p>
+                    <div class="col-md-4 footer__item footer__item-sc-rv">
+                        <div class="social">
+                            <a href="">
+                                <i class="icon-instagram"></i>
+                            </a>
+                            <a href="">
+                                <i class="icon-facebook"></i>
+                            </a>
                         </div>
+                        <div class="reviews">
+                            <h3>Wat klanten zeggen</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-10 offset-md-1 footer__bottom">
+                        <p><?= __('Copyright Catering Buitenhorst', 'catering'); ?></p>
+                        <p><?= __('Realisatie', 'catering'); ?>: <a href="mailto:cornehuisman@outlook.com" target="_blank">Corné Huisman</a></p>
                     </div>
                 </div>
             </div>

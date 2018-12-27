@@ -140,6 +140,9 @@ h2 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 3rem;
+    &.medium {
+        font-size: 3rem;
+    }
 }
 
 h3 {
@@ -147,10 +150,18 @@ h3 {
     margin: 1rem 0 2rem;
 }
 
+h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 
 // links
 a {
-    color: red;
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 // Figure
@@ -179,6 +190,14 @@ blockquote, figure {
                 background-color: $color-dark;
             }
         }
+    }
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style: none;
     }
 }
 
@@ -370,45 +389,6 @@ blockquote, figure {
     }
 }
 
-// Footer
-.footer {
-    padding-top: 25rem;
-}
-
-// Quote
-.quote {
-    text-align: center;
-    &__wrapper {
-        max-width: 80rem;
-        margin: 0 auto;
-
-    }
-    &__slide {
-        width: 100%;
-        h5, p {
-            font-style: italic;
-            font-size: 1.8rem;
-        }
-        p {
-            line-height: 4rem;
-            margin-bottom: 2rem;
-        }
-        h5 {
-            font-weight: 700;
-            margin-bottom: 0;
-        }
-    }
-    &__icon {
-        i {
-            font-size: 21rem;
-            color: #f7f7f7;
-            display: block;
-            margin: -3rem 0 -11rem;
-            color: $color-light;
-        }
-    }
-}
-
 // Slider
 .flickity {
     &-page-dots {
@@ -419,6 +399,54 @@ blockquote, figure {
             border-radius: 1rem;
             margin: 0 .5rem;
             background: $color-secondary;
+        }
+    }
+}
+
+// Footer
+.footer {
+    color: $color-white;
+    padding: 10rem 0 0 0;
+    background-color: $color-secondary;
+    h3 {
+        font-size: 1.7rem;
+        margin: 0 0 1rem 0;
+    }
+    p, li, a {
+        font-size: 1.4rem;
+    }
+    i {
+        font-size: 2rem;
+    }
+    &__item {
+        &-sc-rv {
+            display: flex;
+            .social {
+                margin-right: 8rem;
+                a {
+                    margin-right: 1rem;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem 0;
+        margin-top: 4rem;
+        border-top: 1px solid darken($color-secondary, 5%);
+        p, a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        a {
+            border-bottom: 1px solid $color-white;
         }
     }
 }
