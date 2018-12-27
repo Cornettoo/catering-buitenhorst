@@ -1,5 +1,8 @@
 // Large devices (desktops, less than 1200px)
 @include media-breakpoint-down(lg) {
+    body {
+        display: none;
+    }
 }
 
 // Medium devices (tablets, less than 992px)
