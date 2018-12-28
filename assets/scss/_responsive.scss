@@ -1,18 +1,199 @@
 // Large devices (desktops, less than 1200px)
 @include media-breakpoint-down(lg) {
-    body {
-        display: none;
+    .header {
+        &.header--text {
+            padding: 15rem 0;
+        }
+    }
+    .title-icon__wrapper .item {
+        padding: 0 3rem;
+    }
+    .categories__item {
+        .img, img {
+            height: 25rem;
+        }
     }
 }
 
 // Medium devices (tablets, less than 992px)
 @include media-breakpoint-down(md) { 
+    html {
+        font-size: 58.5%;
+    }
+    h1 {
+        font-size: 4.5rem;
+        margin-bottom: 2rem;
+    }
+    h3 {
+        font-size: 1.8rem;
+    }
+    section {
+        &.padding-top {
+            &--none {
+                padding-top: 0;
+            }
+            &--medium {
+                padding-top: 4rem;
+            }
+            &--large {
+                padding-top: 8rem;
+            }
+        }
+        &.padding-bottom {
+            &--none {
+                padding-bottom: 0;
+            }
+            &--medium {
+                padding-bottom: 4rem;
+            }
+            &--large {
+                padding-bottom: 8rem;
+            }
+        }
+    }
+    .header {
+        &.header--text {
+            padding: 13rem 0;
+        }
+    }
+    .navbar {
+        &__wrapper {
+            justify-content: unset;
+        }
+        &__menu {
+            display: none;
+        }
+        &__hamburger {
+            display: flex;
+        }
+        &__button {
+            margin: 0 4rem 0 auto;
+        }
+    }
+    .mobile-menu {
+        display: block;
+    }
 }
 
 // Small devices (landscape phones, less than 768px)
 @include media-breakpoint-down(sm) {  
+    body {
+        padding-top: 10rem;
+    }
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    section {
+        &.padding-top {
+            &--none {
+                padding-top: 0;
+            }
+            &--medium {
+                padding-top: 2rem;
+            }
+            &--large {
+                padding-top: 5rem;
+            }
+        }
+        &.padding-bottom {
+            &--none {
+                padding-bottom: 0;
+            }
+            &--medium {
+                padding-bottom: 2rem;
+            }
+            &--large {
+                padding-bottom: 5rem;
+            }
+        }
+    }
+    .navbar {
+        &--fixed-top {
+            padding: 1.5rem 0;
+        }
+        &__button {
+            margin: 0 2rem 0 auto;
+            .button {
+                padding: 0.9rem 2rem;
+            }
+        }
+    }
+    .header.header--text {
+        padding: 7rem 0;
+    }
+    .text {
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+    .title-icon__wrapper {
+        padding: 4rem 0;
+        .item {
+            padding: 0 2.3rem;
+        }
+    }
+    .categories__item {
+        &__title {
+            padding: 1.8rem 1.5rem;
+            h3 {
+                font-size: 1.6rem;
+            }
+            .icon {
+                width: 4.5rem;
+                height: 4.5rem;
+                right: 1.5rem;
+                i {
+                    font-size: 2rem;
+                    &.icon-sandwich {
+                        font-size: 2.2rem;
+                    }
+                }
+            }
+        }
+        .img, img {
+            height: 20rem;
+        }
+    }
 }
 
 // Extra small devices (portrait phones, less than 576px)
 @include media-breakpoint-down(xs) { 
+    html {
+        font-size: 55.5%;
+    }
+    .navbar__button {
+        margin: 0 2rem 0 auto;
+    }
+    .title-icon__wrapper {
+        padding: 3rem 0;
+        .item {
+            display: flex;
+            width: 100%;
+            padding: 0 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+            &:nth-last-child(-n + 3):nth-child(3n + 1),
+            &:nth-last-child(-n + 3):nth-child(3n + 1) ~ div {
+                margin-bottom: 2rem;
+            }
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+            h4 {
+                margin-top: .2rem;
+            }
+            i {
+                font-size: 2.5rem;
+                margin: 0 1.5rem 0 0;
+            }
+        }
+    }
+    .categories__item {
+        width: 100%;
+        margin: 0 0 3rem 0 !important;
+        .img, img {
+            height: 20rem;
+        }
+    }
 }

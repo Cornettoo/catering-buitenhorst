@@ -10,7 +10,7 @@ $options = get_sub_field('options');
 <section class="categories padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-10 offset-md-1 categories__wrapper">
+            <div class="col-12 col-lg-10 offset-lg-1 categories__wrapper">
                 <?php
                 while (have_rows('categories')) : the_row();
                     $image = get_sub_field('image');

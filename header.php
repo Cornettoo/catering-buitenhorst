@@ -25,22 +25,24 @@
                         <div class="navbar__button">
                             <a href="" class="button button--primary">Broodjes</a>
                         </div>
-                    </div>
 
-                    <div class="navbar__hamburger col-4 col-sm-4 d-lg-none d-lg-none">
-                        <div class="navbar__hamburger-wrapper">
-                            <div class="navbar__hamburger-bar"></div>
+                        <div class="navbar__hamburger">
+                            <div class="navbar__hamburger-wrapper">
+                                <div class="navbar__hamburger-bar"></div>
+                            </div>
                         </div>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
         </nav>
-        <div class="mobile-menu col-sm-12 d-lg-none">
+        <div class="mobile-menu">
             <div class="mobile-menu__wrapper">
-                <ul>
-                    <?php 
-                    wp_nav_menu(['container' => false, 'theme_location' => 'primary', 'items_wrap' => '%3$s', 'depth' => 0]);
-                    ?>
-                </ul>
+                <div class="container">
+                    <ul>
+                        <?php 
+                        wp_nav_menu(['container' => false, 'theme_location' => 'primary', 'items_wrap' => '%3$s', 'depth' => 0]);
+                        ?>
+                    </ul>
+                </div>
             </div>
         </div>

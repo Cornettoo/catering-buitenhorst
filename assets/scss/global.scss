@@ -28,6 +28,13 @@ $box-shadow-secondary:  0 0 28px rgba(0,0,0,0.08);
 // Transitions
 $transition-primary:  .3s all ease-in-out;
 
+@mixin has-nth($expression, $element: '*') {
+    &:nth-last-child(#{$expression}):first-child,
+    &:nth-last-child(#{$expression}):first-child ~ #{$element} {
+        @content;
+    }
+}
+
 /**
 Imports
 Font */
@@ -96,6 +103,11 @@ body {
     padding-top: 12rem;
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
+    &.scrolled {
+        .navbar--fixed-top {
+            padding: 1rem 0;
+        }
+    }
 }
 
 // Section
@@ -126,14 +138,14 @@ section {
 
 // Titels
 h1, h2, h3, h4, h5, h6 {
-    font-family: 700;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 h1 {
     font-size: 5.5rem;
     letter-spacing: .35px;
-    line-height: 1;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 h2 {
@@ -150,11 +162,14 @@ h3 {
     margin: 1rem 0 2rem;
 }
 
+h4 {
+    line-height: 1.4;
+}
+
 h5 {
     font-size: 1.5rem;
     font-weight: 600;
 }
-
 
 // links
 a {
@@ -273,18 +288,15 @@ ul {
             }
         }
     }
-    $bar-width: 24px;
+    $bar-width: 20px;
     $bar-height: 2px; 
-    $bar-spacing: 8px; 
+    $bar-spacing: 7px; 
     &__hamburger {
         position: relative; 
-        float: right;
         width: $bar-width;
         height: $bar-height + $bar-spacing * 2;
         cursor: pointer;
-    }
-    &__hamburger-wrapper { 
-        float: right;
+        display: none;
     }
     &__hamburger-bar {
         position: relative;
@@ -293,24 +305,20 @@ ul {
         width: $bar-width;
         height: $bar-height;
         transition: all 0s .3s;
-        &:after {
+        &:before, &:after {
             content: '';
             width: $bar-width;
             height: $bar-height;  	
             position: absolute;
             left: 0;
-            top: $bar-spacing;
             background: $color-dark;
+        }
+        &:after {
+            top: $bar-spacing;
             transition: .3s .3s top cubic-bezier(0.23, 1, 0.32, 1), .3s transform cubic-bezier(0.23, 1, 0.32, 1);
         }
         &:before {
-            content: '';
-            width: $bar-width;
-            height: $bar-height;
-            position: absolute; 
-            left: 0;
             bottom: $bar-spacing;
-            background: $color-dark;
             transition: .3s .3s bottom cubic-bezier(0.23, 1, 0.32, 1), .3s transform cubic-bezier(0.23, 1, 0.32, 1);
         }
     }
@@ -330,6 +338,7 @@ ul {
 }
 
 .mobile-menu {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -367,6 +376,8 @@ ul {
                     }
                 }
                 a {
+                    font-size: 2rem;
+                    font-weight: 600;
                     color: $color-dark;
                     text-decoration: none;
                 } 
