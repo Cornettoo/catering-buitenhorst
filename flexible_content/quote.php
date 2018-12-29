@@ -7,7 +7,7 @@ $padding_bottom = get_sub_field('padding_bottom');
 <section class="quote padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-lg-10 offset-lg-1">
                 <div class="quote__icon">
                     <i class="icon-quotes"></i>
                 </div>

@@ -10,6 +10,20 @@
         border-radius: 1rem;
         box-shadow: $box-shadow-pimary;
         &:hover {
+            .categories__item__title {
+                .icon {
+                    i {
+                        &:first-child {
+                            opacity: 0;
+                            transition-delay: 0s;
+                        }
+                        &.icon-arrow {
+                            opacity: 1;
+                            transition-delay: .2s;
+                        }
+                    }
+                }
+            }
             img {
                 transform: scale(1.05);
             }
@@ -27,9 +41,6 @@
                 margin: 0;
             }
             .icon {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 width: 6.5rem;
                 height: 6.5rem;
                 position: absolute;
@@ -41,6 +52,20 @@
                 i {
                     font-size: 2.4rem;
                     color: $color-primary;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+                    transition: $transition-primary-fast;
+                    &:first-child {
+                        opacity: 1;
+                        transition-delay: .2s;
+                    }
+                    &.icon-arrow {
+                        opacity: 0;
+                        font-size: 1.7rem;
+                        transform: scale3d(-1, 1, 1) translate3d(50%, -50%, 0);
+                    }
                     &.icon-sandwich {
                         font-size: 3rem;
                     }
@@ -59,7 +84,7 @@
             object-fit: cover;
             background-size: cover;
             background-position: center center;
-            transition: $transition-primary;
+            transition: $transition-primary-slow;
         }
         .img {
             overflow: hidden;

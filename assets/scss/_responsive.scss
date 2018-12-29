@@ -13,6 +13,9 @@
             height: 25rem;
         }
     }
+    .footer__item-sc-rv .social {
+        margin-right: 5rem;
+    }
 }
 
 // Medium devices (tablets, less than 992px)
@@ -73,6 +76,14 @@
     .mobile-menu {
         display: block;
     }
+    .footer {
+        padding: 8rem 0 0 0;
+        &__item {
+            &:first-child {
+                display: none;
+            }
+        }
+    }
 }
 
 // Small devices (landscape phones, less than 768px)
@@ -83,6 +94,9 @@
     h2 {
         font-size: 3rem;
         margin-bottom: 2rem;
+        &.medium {
+            font-size: 2.5rem;
+        }
     }
     section {
         &.padding-top {
@@ -155,6 +169,40 @@
             height: 20rem;
         }
     }
+    .quote {
+        &__slide {
+            h5, p {
+                font-size: 1.5rem;
+            } 
+        }
+        &__icon {
+            i {
+                font-size: 17rem;
+                margin: -3rem 0 -9rem 0;
+            }
+        }
+    }
+    .faq {
+        &__header {
+            margin-bottom: 2.5rem;
+        }
+        &__accordion a {
+            padding: 2rem;
+        }
+        &__content {
+            padding: 0 2rem 2rem 2rem;
+        }
+    }
+    .footer {
+        padding: 5rem 0 0 0;
+        &__item-sc-rv {
+            justify-content: flex-end;
+            flex-flow: column-reverse;
+            .social {
+                margin: 2rem 0 0 0;
+            }
+        }
+    }
 }
 
 // Extra small devices (portrait phones, less than 576px)
@@ -164,6 +212,9 @@
     }
     .navbar__button {
         margin: 0 2rem 0 auto;
+    }
+    .mobile-menu__wrapper ul li a {
+        font-size: 1.6rem;
     }
     .title-icon__wrapper {
         padding: 3rem 0;
@@ -194,6 +245,20 @@
         margin: 0 0 3rem 0 !important;
         .img, img {
             height: 20rem;
+        }
+    }
+    .footer {
+        &__item {
+            margin-bottom: 2rem;
+            &-sc-rv {
+                flex-flow: column;
+                .social {
+                    margin: 0 0 2rem 0;
+                }
+            }
+        }
+        &__bottom__wrapper {
+            margin-top: 1rem;
         }
     }
 }

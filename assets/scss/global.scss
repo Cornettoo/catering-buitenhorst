@@ -20,20 +20,17 @@ $color-secondary:   #A8CE9B;
 $color-dark:        #504746;
 $color-light:       #F8F8F8;
 $color-white:       #FFFFFF;
+$color-link:        #228BFC;
 
 // Box shadows
 $box-shadow-pimary:     0 6px 28px rgba(0,0,0,0.08);
 $box-shadow-secondary:  0 0 28px rgba(0,0,0,0.08);
 
 // Transitions
-$transition-primary:  .3s all ease-in-out;
+$transition-primary:        .3s all cubic-bezier(.38,.4,.25,.89);
+$transition-primary-fast:   .2s all cubic-bezier(.38,.4,.25,.89);
+$transition-primary-slow:   .4s all cubic-bezier(.38,.4,.25,.89);
 
-@mixin has-nth($expression, $element: '*') {
-    &:nth-last-child(#{$expression}):first-child,
-    &:nth-last-child(#{$expression}):first-child ~ #{$element} {
-        @content;
-    }
-}
 
 /**
 Imports
@@ -79,6 +76,7 @@ Font */
 .icon-quotes:before{content:'\0049';}
 .icon-gluten:before{content:'\004a';}
 .icon-facebook:before{content:'\004b';}
+.icon-arrow:before{content:'\004c';}
 
 // Global
 html {
@@ -137,8 +135,7 @@ section {
 }
 
 // Titels
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+h1, h2, h3, h6 {
     line-height: 1.2;
 }
 
@@ -169,11 +166,13 @@ h4 {
 h5 {
     font-size: 1.5rem;
     font-weight: 600;
+    line-height: 1.5;
 }
 
 // links
 a {
-    color: inherit;
+    color: $color-link;
+    transition: $transition-primary;
     &:hover {
         text-decoration: none;
     }
@@ -188,7 +187,7 @@ blockquote, figure {
 .text {
     ul {
         padding: 0;
-        margin: 0;
+        margin: 0 0 3rem 0;
         li {
             position: relative;
             list-style: none;
@@ -223,11 +222,16 @@ ul {
     padding: .9rem 3rem;
     color: $color-white;
     display: inline-block;
+    transition: $transition-primary;
     &:hover {
-        background-color: darken($color-primary, 10%);
+        // border-radius: 2rem;
     }
     &.button--primary {
         background-color: $color-primary;
+        &:hover {
+            color: $color-white;
+            background-color: lighten($color-primary, 5%);
+        }
     }
     &.button--secondary {
         background-color: $color-secondary;
@@ -235,6 +239,9 @@ ul {
     &.button--third {
         background-color: $color-white;
         color: $color-dark;
+        &:hover {
+            background-color: darken($color-white, 7%);
+        }
     }
 }
 
@@ -285,6 +292,7 @@ ul {
                 text-decoration: none;
                 padding: 0 0 .5rem 0;
                 border-bottom: 2px solid $color-white;
+                transition: $transition-primary;
             }
         }
     }
@@ -426,12 +434,19 @@ ul {
     p, li, a {
         font-size: 1.4rem;
     }
+    a {
+        color: $color-white;
+        &:hover {
+            color: $color-dark;
+        }
+    }
     i {
         font-size: 2rem;
     }
     &__item {
         &-sc-rv {
             display: flex;
+            justify-content: space-between;
             .social {
                 margin-right: 8rem;
                 a {
@@ -444,20 +459,20 @@ ul {
         }
     }
     &__bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 1rem 0;
-        margin-top: 4rem;
-        border-top: 1px solid darken($color-secondary, 5%);
+        &__wrapper {
+            display: flex;
+            flex-flow: wrap;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid darken($color-secondary, 5%);
+        }
         p, a {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0;
-        }
-        a {
-            border-bottom: 1px solid $color-white;
         }
     }
 }

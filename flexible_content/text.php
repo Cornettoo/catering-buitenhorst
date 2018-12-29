@@ -10,7 +10,7 @@ $options = get_sub_field('options');
 <section class="text padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+            <div class="col-12 col-lg-8 offset-lg-2">
                 <h2><?php the_sub_field('title'); ?></h2>
                 <?php 
                 the_sub_field('text'); 

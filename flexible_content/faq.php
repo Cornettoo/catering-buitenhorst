@@ -10,7 +10,7 @@ $title_options = get_sub_field('title_options');
 <section class="faq padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 col-lg-10 offset-lg-1">
                 <div class="faq__header">
                     <h2 class="<?= $title_options['title_size']; ?>"><?= $title_options['title']; ?></h2>
                 </div>

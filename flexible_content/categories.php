@@ -25,6 +25,7 @@ $options = get_sub_field('options');
                                 <h3><?php the_sub_field('title'); ?></h3>
                                 <div class="icon">
                                     <i class="icon-<?= $icon; ?>"></i>
+                                    <i class="icon-arrow"></i>
                                 </div>
                             </div>
                         </a>
