@@ -40,7 +40,7 @@
                 <div class="container">
                     <ul>
                         <?php 
-                        wp_nav_menu(['container' => false, 'theme_location' => 'primary', 'items_wrap' => '%3$s', 'depth' => 0]);
+                        wp_nav_menu(['container' => false, 'theme_location' => 'secondary', 'items_wrap' => '%3$s', 'depth' => 0]);
                         ?>
                     </ul>
                 </div>

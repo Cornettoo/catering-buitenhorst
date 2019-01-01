@@ -17,6 +17,7 @@ $font-primary:       'Open Sans', sans-serif;
 // Colors
 $color-primary:     #C86E4C;
 $color-secondary:   #A8CE9B;
+$color-third:       #EDEDED;
 $color-dark:        #504746;
 $color-light:       #F8F8F8;
 $color-white:       #FFFFFF;
@@ -35,7 +36,7 @@ $transition-primary-slow:   .4s all cubic-bezier(.38,.4,.25,.89);
 /**
 Imports
 Font */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 // SCSS
 @import 'bootstrap'; 
@@ -148,7 +149,7 @@ h1 {
 h2 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem;        
     &.medium {
         font-size: 3rem;
     }
@@ -160,7 +161,7 @@ h3 {
 }
 
 h4 {
-    line-height: 1.4;
+    line-height: 1.6;
 }
 
 h5 {
@@ -417,6 +418,7 @@ ul {
             height: 0.4rem;
             border-radius: 1rem;
             margin: 0 .5rem;
+            opacity: 0.45;
             background: $color-secondary;
         }
     }

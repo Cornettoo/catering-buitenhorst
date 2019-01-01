@@ -1,5 +1,4 @@
 <?php
-
 add_action('init', 'create_redvine_faq');
 function create_redvine_faq() {
     $labels = [

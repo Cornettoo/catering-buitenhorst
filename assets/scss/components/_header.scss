@@ -1,6 +1,9 @@
 .header {
+    height: 35rem;
     background-size: cover;
+    background-position: center center;
     &.header--text {
+        height: auto;
         padding: 20rem 0;
         background-position: center 20%;
         h1, h3 {

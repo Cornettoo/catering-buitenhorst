@@ -19,3 +19,28 @@ Chrome/Opera/Safari */
 :-moz-placeholder { 
     color: $color-dark;
 }
+
+// Forms
+.form {
+    &__fields {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+    input,
+    textarea {
+        width: 100%;
+        padding: 1.2rem 1.5rem;
+        border: 1px solid $color-third;
+        border-radius: 1rem;
+    }
+    input {
+        margin-bottom: 2rem;
+    }
+    .wpcf7-form-control-wrap {
+        width: calc(50% - 1rem);
+        &[class*="textarea"] {
+            width: 100%;
+        }
+    }
+}
