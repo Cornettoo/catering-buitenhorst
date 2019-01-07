@@ -10,6 +10,8 @@ $options = get_sub_field('options');
 if ($options && in_array('text', $options)) {
     $section_class = 'text';
     $wrapper_class = 'col-12 images__wrapper';
+    $text_options = get_sub_field('text_options');
+    $col_class = $text_options == 'box_text' ? 'images__text' : 'images__title-icon';
 } else {
     $section_class = 'image';
     $wrapper_class = 'col-12 col-md-10 offset-md-1 images__wrapper';
@@ -24,24 +26,32 @@ if ($options && in_array('text', $options)) {
                 if ($options && in_array('text', $options)) :
                     ?>
 
-                    <div class="image-col-1 images__title-icon">
+                    <div class="image-col--1 <?= $col_class; ?>">
                         <?php
-                        while (have_rows('title_icon')) : the_row();
-                            $icon = get_sub_field('icon');
+                        if ($text_options == 'box_text') {
+                            
+                            the_sub_field('text');
                             ?>
-                            <div class="item">
-                                <i class="icon-<?= $icon; ?>"></i>
-                                <h4><?php the_sub_field('title'); ?></h4>
-                            </div>
+                            
                             <?php
-                        endwhile;
+                        } else  {
+                            while (have_rows('title_icon')) : the_row();
+                                $icon = get_sub_field('icon');
+                                ?>
+                                <div class="item">
+                                    <i class="icon-<?= $icon; ?>"></i>
+                                    <h4><?php the_sub_field('title'); ?></h4>
+                                </div>
+                                <?php
+                            endwhile;
+                        }
                         ?>
                     </div>
 
                     <?php
                 endif;
                 ?>
-                <div class="image-col-2 images__slider carousel-container">
+                <div class="image-col--2 images__slider carousel-container">
                     <?php
                     while (have_rows('images')) : the_row();
                         $image = get_sub_field('image');

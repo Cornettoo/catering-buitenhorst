@@ -33,14 +33,51 @@ Chrome/Opera/Safari */
         padding: 1.2rem 1.5rem;
         border: 1px solid $color-third;
         border-radius: 1rem;
+        outline: 0;
+        transition: .2s border cubic-bezier(.38,.4,.25,.89);
+        &:focus{
+            border-color: $color-primary;
+        }
     }
     input {
         margin-bottom: 2rem;
+    }
+    textarea {
+        height: 20rem;
+        min-height: 20rem;
     }
     .wpcf7-form-control-wrap {
         width: calc(50% - 1rem);
         &[class*="textarea"] {
             width: 100%;
+        }
+    }
+    .button {
+        margin-top: 2rem;
+    }
+}
+
+// Validation errors
+.form {
+    .wpcf7-validation-errors, 
+    .wpcf7-acceptance-missing,
+    .wpcf7-mail-sent-ng {
+        border: none;
+        margin: 3rem 0 0 0;
+        padding: 1.1rem 1.5rem;
+        display: table;
+        color: $color-white;
+        font-size: 1.4rem;
+        border-radius: 1rem;
+        background-color: $color-error;
+        line-height: 1.4;
+    }
+    span.wpcf7-not-valid-tip {
+        display: none;
+    }
+    input, textarea {
+        &.wpcf7-not-valid {
+            border-color: $color-error;
         }
     }
 }

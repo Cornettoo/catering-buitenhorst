@@ -5,10 +5,10 @@
             flex-flow: wrap;
             justify-content: space-between;
             .image-col {
-                &-1 {
+                &--1 {
                     width: calc(40% - 1.5rem);
                 }
-                &-2 {
+                &--2 {
                     width: calc(60% - 1.5rem);
                     .images__slide {
                         height: 100%;
@@ -36,9 +36,10 @@
             border-radius: 1rem;
         }
     }
-    &__title-icon {
+    .image-col--1 {
         display: block;
         border-radius: 1rem;
+        color: $color-white;
         padding: 6rem 8rem 6rem 5rem;
         background-color: $color-secondary;
         .item {
@@ -47,7 +48,6 @@
             text-align: left;
             width: 100%;
             padding: 0;
-            color: $color-white;
             margin-bottom: 5rem;
             &:last-child {
                 margin-bottom: 0;

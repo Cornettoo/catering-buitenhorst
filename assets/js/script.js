@@ -60,4 +60,23 @@ jQuery(function($) {
             e.preventDefault();
         });
     };
+
+    // Popup
+    $('[data-fancybox="products"]').fancybox({
+        arrows: false,
+        transitionEffect: "fade",
+        transitionDuration: 600,
+        touch : false,
+        keyboard: true,
+        // hideScrollbar: true,
+        helpers : {
+            overlay : {
+                locked : true
+            }
+        }
+    });
+
+    $('.popup__close').on('click', function() {
+        $.fancybox.close();
+    });
 });

@@ -1,0 +1,15 @@
+.newsletter {
+    &__wrapper {
+        color: $color-white;
+        padding: 4rem 3.5rem;
+        border-radius: 1rem;
+        background-color: $color-primary;
+        h3 {
+            margin-top: 0;
+            font-size: 2.4rem;
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

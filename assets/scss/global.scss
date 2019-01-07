@@ -19,12 +19,14 @@ $color-primary:     #C86E4C;
 $color-secondary:   #A8CE9B;
 $color-third:       #EDEDED;
 $color-dark:        #504746;
+$color-grey:        #949494;
 $color-light:       #F8F8F8;
 $color-white:       #FFFFFF;
 $color-link:        #228BFC;
+$color-error:       #c84c4c;
 
 // Box shadows
-$box-shadow-pimary:     0 6px 28px rgba(0,0,0,0.08);
+$box-shadow-primary:     0 6px 28px rgba(0,0,0,0.08);
 $box-shadow-secondary:  0 0 28px rgba(0,0,0,0.08);
 
 // Transitions
@@ -41,7 +43,10 @@ Font */
 // SCSS
 @import 'bootstrap'; 
 @import 'flickity'; 
+@import 'fancybox'; 
+@import 'popup'; 
 @import 'forms'; 
+@import 'contact'; 
 @import 'components/components';
 
 // Icons
@@ -84,15 +89,11 @@ html {
     font-size: 62.5%;
     -webkit-text-size-adjust: 100%; 
     -ms-text-size-adjust: 100%;
-    overflow-x: hidden;
-    &.not-scrollable {
-        overflow: hidden;
-    }
 }
 
 body {
     max-width: 100%;
-    overflow: hidden; 
+    overflow-x: hidden; 
     margin: 0;
     line-height: 30px;
     font-family: $font-primary;	
@@ -170,6 +171,16 @@ h5 {
     line-height: 1.5;
 }
 
+// Text 
+p {
+    &.small {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: $color-grey;
+        line-height: 21px;
+    }
+}
+
 // links
 a {
     color: $color-link;
@@ -216,6 +227,18 @@ ul {
     }
 }
 
+// Badge
+.badge {
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 3rem;
+    padding: 1rem 1.5rem;
+    &--green {
+        color: $color-white;
+        background-color: $color-secondary;
+    }
+}
+
 // Buttons
 .button {
     border-radius: 3rem;
@@ -223,9 +246,14 @@ ul {
     padding: .9rem 3rem;
     color: $color-white;
     display: inline-block;
+    border: none;
     transition: $transition-primary;
+    cursor: pointer;
     &:hover {
         // border-radius: 2rem;
+    }
+    &:focus {
+        outline: 0;
     }
     &.button--primary {
         background-color: $color-primary;
