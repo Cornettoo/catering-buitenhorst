@@ -1,0 +1,51 @@
+.image-text {
+    &__col-image {
+        
+    }
+    &__col-text {
+        padding-left: 6rem;
+        h4 {
+            margin-top: 3rem;
+        }
+    }
+    .img, img {
+        border-radius: 1rem;
+        width: 100%;
+        height: 31rem;
+        object-fit: cover;
+        background-size: cover;
+        background-position: center center;
+        transition: $transition-primary-slow;
+    }
+    .img {
+        overflow: hidden;
+    }
+    .button--small {
+        margin-top: 3rem;
+        i {
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            transform: translate3d(0, 0.1rem, 0);
+        }
+    }
+}
+
+.table {
+    &__wrapper {
+        display: flex;
+        flex-flow: wrap;
+        padding: 4rem 3rem;
+        border-radius: 1rem;
+        background-color: $color-secondary;
+    }
+}
+
+.single-assortment {
+    .categories {
+        background-color: $color-light;
+        &__item {
+            background-color: $color-white;
+        }
+    }
+}

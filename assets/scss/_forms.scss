@@ -36,7 +36,7 @@ Chrome/Opera/Safari */
         outline: 0;
         transition: .2s border cubic-bezier(.38,.4,.25,.89);
         &:focus{
-            border-color: $color-primary;
+            border-color: $color-secondary;
         }
     }
     input {

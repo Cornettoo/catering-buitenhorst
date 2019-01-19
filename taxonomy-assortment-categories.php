@@ -56,7 +56,7 @@ $image = get_field('header_image', $taxonomy . '_' . $term_id);
                             <?php
                         } else {
                             ?>
-                            <a onclick="javascript:jQuery('#popup-<?= $post->post_name;?>').toggle();" data-fancybox="products" href="#popup-<?= $post->post_name;?>">
+                            <a onclick="javascript:jQuery('#popup-<?= $post->post_name;?>');" data-fancybox="products" href="#popup-<?= $post->post_name;?>">
                             <?php
                         }
                         ?>
@@ -101,7 +101,7 @@ foreach ($products as $post) : setup_postdata($post);
             <div class="popup__image" style="background-image: url('<?= $image['url']; ?>')"></div>
             <div class="popup__info">
                 <div class="popup__close"><?= __('Sluiten', 'buitenhorst'); ?></div>
-                <div class="popup__content">
+                <div class="popup__content list--check">
                     <h3><?php the_title(); ?></h3>
                     <?php
                     if ($quantity) :

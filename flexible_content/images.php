@@ -14,7 +14,7 @@ if ($options && in_array('text', $options)) {
     $col_class = $text_options == 'box_text' ? 'images__text' : 'images__title-icon';
 } else {
     $section_class = 'image';
-    $wrapper_class = 'col-12 col-md-10 offset-md-1 images__wrapper';
+    $wrapper_class = 'col-12 offset-lg-1 col-lg-10 images__wrapper';
 }
 ?>
 

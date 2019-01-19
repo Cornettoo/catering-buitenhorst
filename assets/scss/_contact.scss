@@ -1,3 +1,8 @@
-.times {
-    margin-bottom: 2rem;
+.contact {
+    a {
+        color: $color-dark;
+        &:hover {
+            color: $color-link;
+        }
+    }
 }

@@ -23,7 +23,11 @@
                         </ul>
 
                         <div class="navbar__button">
-                            <a href="" class="button button--primary">Broodjes</a>
+                            <?php
+                            $term = get_term(14, 'assortment-categories');
+                            $term_link = get_term_link($term);
+                            ?>
+                            <a href="<?= $term_link; ?>" class="button button--primary"><?= __('Broodjes', 'buitenhorst'); ?></a>
                         </div>
 
                         <div class="navbar__hamburger">

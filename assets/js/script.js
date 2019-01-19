@@ -63,17 +63,24 @@ jQuery(function($) {
 
     // Popup
     $('[data-fancybox="products"]').fancybox({
-        arrows: false,
-        transitionEffect: "fade",
-        transitionDuration: 600,
-        touch : false,
-        keyboard: true,
-        // hideScrollbar: true,
-        helpers : {
-            overlay : {
-                locked : true
-            }
-        }
+        animationEffect: "fade",
+        animationDuration: 400,
+        buttons: [],
+        touch: false,
+        keyboard: false,
+        thumbs: false,
+		fullScreen: false,
+        slideShow: false,
+        closeBtn: false,
+        smallBtn : false,
+        baseTpl:
+            '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+            '<div class="fancybox-bg"></div>' +
+            '<div class="fancybox-inner">' +
+            '<div class="fancybox-stage"></div>' +
+            '</div>' +
+            '</div>',
+        // hideScrollbar: false,
     });
 
     $('.popup__close').on('click', function() {

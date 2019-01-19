@@ -29,6 +29,11 @@ remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
+// Add options page
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page('Website opties');
+}
+
 // Add post type to breadcrumbs
 add_filter( 'wpseo_breadcrumb_links', 'my_wpseo_breadcrumb_links' );
 function my_wpseo_breadcrumb_links( $links ) {

@@ -13,18 +13,23 @@
                         endif;
                         ?>
                     </div>
-                    <div class="col-sm-6 col-lg-5 footer__item footer__item-sc-rv">
+                    <div class="col-sm-6 col-lg-4 col-xl-5 footer__item footer__item-sc-rv">
                         <div class="social">
-                            <a href="">
+                            <a href="<?php the_field('instagram', 'options'); ?>" target="_blank">
                                 <i class="icon-instagram"></i>
                             </a>
-                            <a href="">
+                            <a href="<?php the_field('facebook', 'options'); ?>" target="_blank">
                                 <i class="icon-facebook"></i>
                             </a>
                         </div>
                         <div class="reviews">
                             <h3>Wat klanten zeggen</h3>
-                            <i class="icon-check"></i>
+                            <!-- <i class="icon-check"></i> -->
+
+                            <?php 
+                            if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : 
+                            endif;
+                            ?>
                         </div>
                     </div>
                     <div class="col-12 footer__bottom">
