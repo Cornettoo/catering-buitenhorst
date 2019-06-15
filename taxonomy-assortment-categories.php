@@ -46,11 +46,10 @@ $image = get_field('header_image', $taxonomy . '_' . $term_id);
 				$products = get_posts($args);
                 foreach ($products as $post) : setup_postdata($post);
                     $image = get_field('image');
-                    $term_title = $term[0]->name;
                     ?>
                     <div class="categories__item">
                         <?php
-                        if ($term_title == 'Broodjes') {
+                        if ($term[0]->term_id == '14') {
                             ?>
                             <a href="<?php the_permalink(); ?>">
                             <?php
@@ -95,6 +94,7 @@ foreach ($products as $post) : setup_postdata($post);
     $slug = $post->post_name;
     $image = get_field('image');
     $quantity = get_field('info_quantity');
+    $info_options = get_field('info_options');
     ?>
     <div style="display: none;" id="popup-<?= $slug; ?>" class="popup">
         <div class="popup__wrapper">
@@ -104,15 +104,75 @@ foreach ($products as $post) : setup_postdata($post);
                 <div class="popup__content list--check">
                     <h3><?php the_title(); ?></h3>
                     <?php
-                    if ($quantity) :
-                        ?>
-                        <p class="small"><?= $quantity; ?></p>
-                        <?php
-                    endif;
-                    
                     the_field('info_text');
+
+                    if (have_rows('allergens')) {
+                        ?> 
+                        <h4><?php the_field('title_allergen'); ?></h4>
+                        <div class="icon__wrapper">
+                            <?php
+                            while (have_rows('allergens')) : the_row();
+                                $icon = get_sub_field('icon');
+                                ?>
+                                <div class="icon">
+                                    <i class="icon-<?= $icon; ?>"></i>
+                                    <p><?php the_sub_field('name'); ?></p>
+                                </div>
+                                <?php
+                            endwhile;
+                            ?>
+                        </div>
+                        <?php
+                    }
                     ?>
-                    <span class="badge badge--green">€ <?php the_field('info_price'); ?></span>
+                    <div class="prices__wrapper">
+                        <?php
+                        if ($info_options && in_array('multiple_sizes', $info_options)) {
+                            while (have_rows('info_prices')) : the_row();
+                                ?>
+                                <div class="price">
+                                    <p class="small"><?php the_sub_field('size'); ?></p>
+                                    <?php
+                                    if ($info_options && in_array('discount', $info_options)) {
+                                        ?>
+                                        <div class="badge badge--discount">€ <?php the_sub_field('price'); ?></div>
+                                        <div class="badge badge--green">€ <?php the_sub_field('price_discount'); ?></div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="badge badge--green">€ <?php the_sub_field('price'); ?></div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                                <?php
+                            endwhile;
+                        } else {
+                            ?>
+                            <div class="price">
+                                <?php
+                                if ($quantity) :
+                                    ?>
+                                    <p class="small"><?= $quantity; ?></p>
+                                    <?php
+                                endif;
+
+                                if ($info_options && in_array('discount', $info_options)) {
+                                    ?>
+                                    <div class="badge badge--discount">€ <?php the_field('info_price'); ?></div>
+                                    <div class="badge badge--green">€ <?php the_field('info_price_discount'); ?></div>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="badge badge--green">€ <?php the_field('info_price'); ?></div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
                 <div class="popup__nutritional-values">
                     <h4><?php the_field('nutrition_title'); ?></h4>

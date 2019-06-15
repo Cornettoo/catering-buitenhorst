@@ -16,10 +16,17 @@ $title_options = get_sub_field('title_options');
                 </div>
                 <div class="faq__wrapper">
                     <?php
-                    $faq_object = get_sub_field('faq');
+                    $args = [
+                        'post_type'      => 'faq',
+                        'posts_per_page' => -1,
+                        'order'          => 'ASC'
+                    ];
+                    $faq_object = get_posts($args);
+                    foreach ($faq_object as $post) : setup_postdata($post);
+                    // $faq_object = get_sub_field('faq');
                     
-                    foreach ($faq_object as $post) : 
-                        setup_postdata($post);
+                    // foreach ($faq_object as $post) : 
+                    //     setup_postdata($post);
                         $i++;
                         ?>
                         <div class="faq__accordion">

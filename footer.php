@@ -23,9 +23,7 @@
                             </a>
                         </div>
                         <div class="reviews">
-                            <h3>Wat klanten zeggen</h3>
-                            <!-- <i class="icon-check"></i> -->
-
+                            <h3><?= __('Wat klanten zeggen', 'catering'); ?></h3>
                             <?php 
                             if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer3') ) : 
                             endif;
@@ -35,7 +33,7 @@
                     <div class="col-12 footer__bottom">
                         <div class="footer__bottom__wrapper">
                             <p><?= __('Copyright Catering Buitenhorst', 'catering'); ?></p>
-                            <p><?= __('Realisatie', 'catering'); ?>: <a href="mailto:cornehuisman@outlook.com" target="_blank">Corné Huisman</a></p>
+                            <p><?= __('Realisatie', 'catering'); ?>: <a href="mailto:c.huisman@accepta.eu">Accepta</a></p>
                         </div>
                     </div>
                 </div>

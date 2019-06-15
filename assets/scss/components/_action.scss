@@ -1,0 +1,58 @@
+.action {
+   .col-12 {
+      display: flex;
+      justify-content: center;
+   }
+   &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 78rem;
+      overflow: hidden;
+      border-radius: 1rem;
+      background-color: $color-primary;
+      &__image {
+         width: 31rem;
+         height: 100%;
+         min-height: 24rem;
+         background-size: cover;
+         background-position: center center;
+      }
+      &__content {
+         padding: 2rem 5rem;
+      }
+      h3, p {
+         font-size: 2.4rem;
+         font-weight: 700;
+         color: #ffffff;
+      }
+      p {
+         margin: 0 0 2rem 0;
+      }
+      span {
+         color: #ffffff;
+         margin: 0 1rem 0 0;
+      }
+      .badge {
+         margin-right: 2rem;
+         &--white {
+            transform: scale(.9);
+         }
+         &--scaled {
+            transform: scale(1.2);
+            margin-left: 1rem;
+            background: #45964b;
+            color: #fff;
+         }
+      }
+      .button {
+         margin-left: auto;
+      }
+   }
+   &__prices {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4rem;
+   }
+}

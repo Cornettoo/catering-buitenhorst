@@ -16,7 +16,7 @@ $options = get_sub_field('options');
                 the_sub_field('text'); 
                 
                 if ($options && in_array('columns', $options)) :
-                ?>
+                    ?>
                     <div class="text-columns">
                         <?php
                         while (have_rows('columns')) : the_row();

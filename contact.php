@@ -40,7 +40,7 @@ $image = get_field('header_image');
     </div>
 </section>
 
-<!-- <section class="newsletter padding-top--large padding-bottom--large">
+<section class="newsletter padding-top--none padding-bottom--large">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-10 offset-lg-1">
@@ -49,14 +49,19 @@ $image = get_field('header_image');
                         <h3><?php the_field('title_news'); ?></h3>
                         <p><?php the_field('text_news'); ?></p>
                     </div>
-                    <div class="newsletter__form">
-
+                    <div class="newsletter__form form">
+                        <form action="https://cateringbuitenhorst.us17.list-manage.com/subscribe/post?u=8cfce515236d967c115874406&amp;id=35c6a82138" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll">
+                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="E-mailadres" required>
+                                <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button button--submit"><i class="icon-arrow"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
 <?php
 get_footer();

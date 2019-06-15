@@ -1,5 +1,7 @@
 .newsletter {
     &__wrapper {
+        display: flex;
+        align-items: center;
         color: $color-white;
         padding: 4rem 3.5rem;
         border-radius: 1rem;
@@ -10,6 +12,43 @@
         }
         p {
             margin-bottom: 0;
+        }
+    }
+    &__form {
+        flex: none;
+        width: 40%;
+        padding-left: 4rem;
+        text-align: right;
+        input {
+            padding-right: 7rem;
+            margin-bottom: 0;
+            &:focus {
+                border-color: $color-white;
+            }
+        }
+        #mc_embed_signup_scroll {
+            position: relative;
+        }
+        .button--submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            background: $color-light;
+            top: 0;
+            right: 0px;
+            margin-top: 0;
+            height: 100%;
+            width: 3rem;
+            border-radius: 0 1rem 1rem 0;
+            &:hover {
+                background: darken($color-light, 5%);
+            }
+            i {
+                font-size: 1.6rem;
+                color: $color-dark;
+                transform: scale3d(-1, 1, 1) translatey(3px);
+            }
         }
     }
 }

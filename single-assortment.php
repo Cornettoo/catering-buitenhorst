@@ -2,7 +2,6 @@
 get_header(); 
 
 $image = get_field('image');
-
 $image_options = get_field('image_options');
 if ($image_options && in_array('header', $image_options)) :
     $header_image = get_field('header_image');
@@ -10,6 +9,9 @@ if ($image_options && in_array('header', $image_options)) :
     <header class="header header--image" style="background-image: url(<?= $header_image['url']; ?>)"></header>
     <?php
 endif;
+
+$quantity = get_field('info_quantity');
+$info_options = get_field('info_options');
 ?>
 
 <section class="image-text padding-top--large padding-bottom--large">
@@ -22,7 +24,77 @@ endif;
             </div>
             <div class="col-12 col-md-6 image-text__col-text list--check">
                 <h1 class="small"><?php the_title(); ?></h1>
-                <?php the_field('info_text'); ?> 
+                <?php 
+                the_field('info_text'); 
+                
+                if (have_rows('allergens')) {
+                    ?> 
+                    <h4><?php the_field('title_allergen'); ?></h4>
+                    <div class="icon__wrapper">
+                        <?php
+                        while (have_rows('allergens')) : the_row();
+                            $icon = get_sub_field('icon');
+                            ?>
+                            <div class="icon">
+                                <i class="icon-<?= $icon; ?>"></i>
+                                <p><?php the_sub_field('name'); ?></p>
+                            </div>
+                            <?php
+                        endwhile;
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
+
+                <div class="prices__wrapper">
+                    <?php
+                    if ($info_options && in_array('multiple_sizes', $info_options)) {
+                        while (have_rows('info_prices')) : the_row();
+                            ?>
+                            <div class="price">
+                                <p class="small"><?php the_sub_field('size'); ?></p>
+                                <?php
+                                if ($info_options && in_array('discount', $info_options)) {
+                                    ?>
+                                    <div class="badge badge--discount">€ <?php the_sub_field('price'); ?></div>
+                                    <div class="badge badge--green">€ <?php the_sub_field('price_discount'); ?></div>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="badge badge--green">€ <?php the_sub_field('price'); ?></div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
+                        endwhile;
+                    } else {
+                        ?>
+                        <div class="price">
+                            <?php
+                            if ($quantity) :
+                                ?>
+                                <p class="small"><?= $quantity; ?></p>
+                                <?php
+                            endif;
+
+                            if ($info_options && in_array('discount', $info_options)) {
+                                ?>
+                                <div class="badge badge--discount">€ <?php the_field('info_price'); ?></div>
+                                <div class="badge badge--green">€ <?php the_field('info_price_discount'); ?></div>
+                                <?php
+                            } else {
+                                ?>
+                                <div class="badge badge--green">€ <?php the_field('info_price'); ?></div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
                 <h4><?php the_field('nutrition_title'); ?></h4>
                 <table>
                     <?php

@@ -16,11 +16,16 @@ $sort_cats = get_sub_field('sort_categories');
                 ?>
                 <div class="col-12 col-lg-10 offset-lg-1 categories__wrapper">
                     <?php
+                    $total_rows = count(get_sub_field('categories_edited'));
                     while (have_rows('categories_edited')) : the_row();
+                        $i++;
                         $image = get_sub_field('image');
                         $icon = get_sub_field('icon');
+                        if ($total_rows >= 5) {
+                            $class_last_three = $i >= 3 ? ' categories__item--small' : '';
+                        }
                         ?>
-                        <div class="categories__item">
+                        <div class="categories__item<?= $class_last_three; ?>">
                             <a href="<?php the_sub_field('link'); ?>">
                                 <figure class="img">
                                     <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">

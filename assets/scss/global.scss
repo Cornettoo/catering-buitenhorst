@@ -15,10 +15,8 @@ $container-max-widths: (
 $font-primary:       'Open Sans', sans-serif;
 
 // Colors
-// $color-primary:     #C86E4C;
-// $color-secondary:   #A8CE9B;
-$color-primary:     #fa9519;
-$color-secondary:   #5aa76a;
+$color-primary:     #ED9121;
+$color-secondary:   #3bba7a;
 $color-third:       #EDEDED;
 $color-dark:        #504746;
 $color-grey:        #949494;
@@ -81,14 +79,22 @@ Font */
 .icon-check:before{content:'\0045';}
 .icon-clock:before{content:'\0046';}
 .icon-sandwich:before{content:'\0047';}
-.icon-meeting-old:before{content:'\0048';}
+.icon-meeting:before{content:'\0048';}
 .icon-quotes:before{content:'\0049';}
-.icon-gluten-old:before{content:'\004a';}
+.icon-gluten:before{content:'\004a';}
 .icon-facebook:before{content:'\004b';}
 .icon-arrow:before{content:'\004c';}
 .icon-tea:before{content:'\004d';}
 .icon-meeting:before{content:'\004e';}
-.icon-gluten:before{content:'\004f';}
+.icon-gluten-free:before{content:'\004f';}
+.icon-discount:before{content:'\0050';}
+.icon-egg:before{content:'\0051';}
+.icon-milk:before{content:'\0052';}
+.icon-nuts:before{content:'\0053';}
+.icon-peanut:before{content:'\0054';}
+.icon-fish:before{content:'\0055';}
+.icon-soy:before{content:'\0056';}
+.icon-mustard:before{content:'\0057';}
 
 // Global
 html {
@@ -292,10 +298,37 @@ ul {
     font-size: 1.3rem;
     font-weight: 700;
     border-radius: 3rem;
-    padding: 1rem 1.5rem;
+    padding: .4rem 1.5rem;
     &--green {
         color: $color-white;
         background-color: $color-secondary;
+    }
+    &--white {
+        background-color: #FFFFFF;
+        color: $color-dark;
+    }
+    &--discount {
+        position: relative;
+        color: $color-white;
+        background-color: $color-primary;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 0.2rem;
+            top: 1.8rem;
+            left: 1.2rem;
+            width: calc(100% - 2.3rem);
+            background-color: $color-white;
+            transform: rotate(-14deg);
+        }
+        &--white {
+            background-color: #FFFFFF;
+            color: $color-dark;
+            &::before {
+                background-color: $color-dark;
+            }
+        }
     }
 }
 
@@ -609,6 +642,11 @@ ul {
             margin-bottom: 0;
         }
     }
+}
+
+// reCAPTCHA
+.grecaptcha-badge {
+    display: none !important;
 }
 
 @import 'responsive';

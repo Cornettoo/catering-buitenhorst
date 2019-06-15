@@ -41,6 +41,55 @@
     }
 }
 
+.prices {
+    &__wrapper {
+        display: flex;
+        .price {
+            margin-left: 1.5rem;
+            text-align: center;
+            &:first-child {
+                margin-left: 0;
+            }
+            p {
+                margin-bottom: 1rem;
+            }
+            .badge {
+                width: fit-content;
+                margin: 0 auto 1rem;
+            }
+        }
+    }
+}
+
+.icon__wrapper {
+    display: flex;
+    flex-flow: wrap;
+    margin: 1rem 0 2rem;
+    .icon {
+        text-align: center;
+        margin-right: 2rem;
+        &:last-child {
+            margin-right: 0;
+        }
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.3rem;
+            border-radius: 50%;
+            width: 5rem;
+            height: 5rem;
+            color: #ffffff;
+            background: $color-primary;
+            margin-bottom: .5rem;
+        }
+        p {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+    }
+}
+
 .single-assortment {
     .categories {
         background-color: $color-light;

@@ -61,7 +61,8 @@ Chrome/Opera/Safari */
 .form {
     .wpcf7-validation-errors, 
     .wpcf7-acceptance-missing,
-    .wpcf7-mail-sent-ng {
+    .wpcf7-mail-sent-ng,
+    .wpcf7-mail-sent-ok {
         border: none;
         margin: 3rem 0 0 0;
         padding: 1.1rem 1.5rem;
@@ -71,6 +72,9 @@ Chrome/Opera/Safari */
         border-radius: 1rem;
         background-color: $color-error;
         line-height: 1.4;
+    }
+    .wpcf7-mail-sent-ok {
+        background-color: $color-secondary;
     }
     span.wpcf7-not-valid-tip {
         display: none;
