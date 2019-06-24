@@ -109,7 +109,7 @@ $info_options = get_field('info_options');
                     ?>
                 </table>   
                 <?php
-                $term = get_term(14, 'assortment-categories');
+                $term = get_term_by('slug', get_query_var('assortment-categories'), 'assortment-categories'); 
                 $term_link = get_term_link( $term );
                 ?>
                 <a href="<?= $term_link; ?>" class="button button--small"><i class="icon-arrow"></i> <?= __('Naar het overzicht', 'buitenhorst'); ?></a>
@@ -118,23 +118,26 @@ $info_options = get_field('info_options');
     </div>
 </section>
 
-<section class="categories categories--standard padding-top--large padding-bottom--large">
-    <div class="container">
-        <div class="row">
-            <?php
-            $related_title = get_field('related_title');
-            if ($related_title) :
+<?php
+$products = get_field('related_products');
+if ($products) :
+    ?>
+    <section class="categories categories--standard padding-top--large padding-bottom--large">
+        <div class="container">
+            <div class="row">
+                <?php
+                $related_title = get_field('related_title');
+                if ($related_title) :
+                    ?>
+                    <div class="col-12 categories__header">
+                        <h2 class="medium"><?= $related_title; ?></h2>
+                    </div>
+                    <?php
+                endif;
                 ?>
-                <div class="col-12 categories__header">
-                    <h2 class="medium"><?= $related_title; ?></h2>
-                </div>
-                <?php
-            endif;
-            ?>
-            <div class="col-12 categories__wrapper">
-                <?php
-                $products = get_field('related_products');
-                if ($products) :
+                <div class="col-12 categories__wrapper">
+                    <?php
+                    $products = get_field('related_products');
                     foreach ($products as $post) : setup_postdata($post);
                         $image = get_field('image');
                         ?>
@@ -151,12 +154,12 @@ $info_options = get_field('info_options');
                         <?php
                     endforeach;
                     wp_reset_postdata();
-                endif;
-                ?>
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <?php
+endif;
 
-<?php
 get_footer();

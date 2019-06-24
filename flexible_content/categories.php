@@ -4,7 +4,6 @@ $padding_top = get_sub_field('padding_top');
 $padding_bottom = get_sub_field('padding_bottom');
 
 // Block options
-$options = get_sub_field('options');
 $sort_cats = get_sub_field('sort_categories');
 ?>
 
@@ -21,12 +20,25 @@ $sort_cats = get_sub_field('sort_categories');
                         $i++;
                         $image = get_sub_field('image');
                         $icon = get_sub_field('icon');
+                        $options = get_sub_field('options');
                         if ($total_rows >= 5) {
                             $class_last_three = $i >= 3 ? ' categories__item--small' : '';
                         }
                         ?>
                         <div class="categories__item<?= $class_last_three; ?>">
-                            <a href="<?php the_sub_field('link'); ?>">
+                            <?php
+                            if ($options == 'link') {
+                                ?>
+                                <a href="<?php the_sub_field('link'); ?>">
+                                <?php
+                            } else {
+                                $term = get_term(get_sub_field('cat_link'), 'assortment-categories');
+                                $term_link = get_term_link( $term );
+                                ?>
+                                <a href="<?= $term_link; ?>">
+                                <?php
+                            }
+                            ?>
                                 <figure class="img">
                                     <img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">
                                 </figure>
