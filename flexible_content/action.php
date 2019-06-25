@@ -12,7 +12,13 @@ $button = get_sub_field('button');
       <div class="row">
          <div class="col-12 col-lg-10 offset-lg-1">
             <div class="action__wrapper">
-               <div class="action__wrapper__image" style="background-image: url(<?= $image['url']; ?>);"></div>
+               <?php
+               if ($image) {
+                  ?>
+                  <div class="action__wrapper__image" style="background-image: url(<?= $image['url']; ?>);"></div>
+                  <?php
+               }
+               ?>
                <div class="action__wrapper__content">
                   <p><?php the_sub_field('title'); ?></p>
                   <div class="action__prices">
