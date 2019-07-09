@@ -8,6 +8,7 @@ function add_js_and_css() {
 add_action( 'wp_enqueue_scripts', 'add_js_and_css' );
 
 function footer_enqueue() {
+    wp_enqueue_script( 'object-fit', get_template_directory_uri(). '/assets/js/object-fit.js', ['jquery'], '1.0.0' );
     wp_enqueue_script( 'flickity', get_template_directory_uri(). '/assets/js/flickity.min.js', ['jquery'], '1.0.0' );
     wp_enqueue_script( 'script', get_template_directory_uri(). '/assets/dist/script.min.js', ['jquery'], '1.0.0' );
 }
