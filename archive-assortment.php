@@ -45,7 +45,7 @@ get_header();
                     } else {
                         $terms = get_terms([
                             'taxonomy' => 'assortment-category',
-                            'hide_empty' => true,
+                            'hide_empty' => false,
                         ]);
                     }
                     ?>

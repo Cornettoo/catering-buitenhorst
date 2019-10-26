@@ -65,7 +65,7 @@ $sort_cats = get_sub_field('sort_categories');
                 } else {
                     $terms = get_terms([
                         'taxonomy' => 'assortment-categories',
-                        'hide_empty' => true,
+                        'hide_empty' => false,
                     ]);
                 }
                 ?>
