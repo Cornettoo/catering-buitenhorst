@@ -61,4 +61,8 @@ jQuery(function ($) {
             e.preventDefault();
         });
     };
+    
 });
+
+// Import files
+import './components/object-fit';

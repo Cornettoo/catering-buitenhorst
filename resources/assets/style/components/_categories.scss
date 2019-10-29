@@ -132,7 +132,8 @@
                         font-size: 1.7rem;
                         transform: scale3d(-1, 1, 1) translate3d(50%, -50%, 0);
                     }
-                    &.icon-sandwich {
+                    &.icon-sandwich,
+                    &.icon-grill {
                         font-size: 3rem;
                     }
                 }

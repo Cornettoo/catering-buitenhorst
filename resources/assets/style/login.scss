@@ -1,0 +1,214 @@
+html, body {
+    overflow: hidden;
+    position: relative;
+}
+
+body { 
+    background: linear-gradient(to top right, #393BBD, #30319e); 
+    &::before,
+    &::after {
+        content: '';
+        width: 650px;
+        height: 650px;
+        position: absolute;
+        border-radius: 50%;
+    }
+    &::before {
+        top: -300px; 
+        right: auto;
+        bottom: auto;
+        left: -100px;
+        background-color: #3334aa;
+    }
+    &::after {
+        top: auto;
+        right: -230px;
+        bottom: -300px;
+        left: auto;
+        background-color: #3133a7;
+    }
+}
+
+#login,
+.login  {
+    h1 a {
+        height: 65px;
+        width: 230px;
+        padding-bottom: 30px;
+        background-image: url('../images/ac-login-logo.svg');
+        background-size: 230px 65px;
+        background-repeat: no-repeat;
+    }
+}
+
+#login {
+    width: 370px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 0;
+}
+
+.login {
+    form {
+        padding: 50px;
+        border-radius: 3px;
+        left: auto !important;
+        background: #f4f4fb;
+        .forgetmenot label {
+            display: block;
+            margin: 8px 0 0 0;
+        }
+    }
+    form .input, 
+    form input[type=checkbox], 
+    input[type=text] {
+        background: #f4f4fb;
+        font-size: 14px;
+        padding: 10px;
+        margin-top: 6px;
+    }
+    #backtoblog, 
+    #nav {
+        padding: 0;
+        a {
+            color: #F4F4FB;
+        }
+    }
+    #backtoblog a:hover, #backtoblog a:focus,
+    #nav a:hover, #nav a:focus, 
+    h1 a:hover, h1 a:focus  {
+        color: #F49D37;
+        box-shadow: none;
+    }
+    #login_error, 
+    .message, 
+    .success {
+        border-left: none;
+        border-radius: 3px;
+        padding: 50px 50px 0 50px;
+        margin-bottom: -30px;
+        box-shadow: none;
+        z-index: 99;
+        position: relative;
+        line-height: 26px;
+        background-color: #f4f4fb;
+    }
+    .message + #login_error {
+        padding-top: 20px;
+    }
+    #login_error {
+        color: #e60b0b;
+    }
+}
+
+.wp-core-ui {
+    .button-primary {
+        background: #F49D37;
+        border: none;
+        text-shadow: none;
+        box-shadow: none;
+        color: #F4F4FB;
+        transition: 0.3s all cubic-bezier(0.34, 0.64, 0.32, 0.85);
+        &.focus, &.hover,
+        &:focus, &:hover {
+            background: #F6AB54;
+            box-shadow: none;
+        }
+    }
+    .button-group.button-large .button, 
+    .button.button-large {
+        padding: 5px 20px;
+        height: auto;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+input[type=checkbox], 
+input[type=color], 
+input[type=date], 
+input[type=datetime-local], 
+input[type=datetime], 
+input[type=email], 
+input[type=month], 
+input[type=number], 
+input[type=password], 
+input[type=radio], 
+input[type=search], 
+input[type=tel], 
+input[type=text], 
+input[type=time], 
+input[type=url], 
+input[type=week], 
+select, 
+textarea {
+    border-color: #3e3e3e !important;
+    box-shadow: none;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 6px;
+}
+
+#rememberme {
+    margin-top: -1px !important;
+}
+
+input[type=checkbox]:checked:before {
+    color: #3e3e3e;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    body {
+        &::before,
+        &::after {
+            width: 350px;
+            height: 350px;
+        }   
+        &::before {
+            top: -150px; 
+            left: -50px;
+        }
+        &::after {
+            right: -115px;
+            bottom: -150px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    html, body {
+        overflow-y: scroll;
+    }
+
+    body {
+        &::before,
+        &::after {
+            content: none;
+        }
+    }   
+
+    #login {
+        width: 290px;
+        transform: translate(0px, 0px);
+        position: relative;
+        left: 0;
+        top: 40px;
+    }
+
+    .login form {
+        padding: 30px;
+        #login_error, 
+        .message, 
+        .success {
+            padding: 30px 30px 0 30px;
+        }
+    }
+
+    .wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large {
+        padding: 11px 20px;
+    }
+}

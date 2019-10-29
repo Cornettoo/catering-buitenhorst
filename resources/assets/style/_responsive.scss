@@ -103,7 +103,8 @@
             }
         }
     }
-    .categories--standard .categories__item {
+    .categories--standard .categories__item,
+    .categories--edited .categories__item {
         &__title  {
             padding: 1.5rem;
             h3 {
@@ -116,7 +117,7 @@
         }
     }
     .categories__item {
-        margin-bottom: 3rem; 
+        margin-bottom: 3rem !important; 
     }
     .image-text__col-text {
         padding-left: 1.5rem;
@@ -232,7 +233,8 @@
         }
     }
     .categories {
-        &--standard .categories__item {
+        &--standard .categories__item,
+        &--edited .categories__item {
             width: calc(50% - 1.5rem);
             &:nth-child(odd) {
                 margin-right: 1.5rem;
@@ -512,6 +514,13 @@
         &__prices {
             width: 100%;
             margin: 2rem 0;
+        }
+    }
+    .video__placeholder .play-button {
+        width: 6rem;    
+        height: 6rem;
+        i {
+            font-size: 2rem;
         }
     }
 }

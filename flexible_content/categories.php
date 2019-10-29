@@ -23,6 +23,8 @@ $sort_cats = get_sub_field('sort_categories');
                         $options = get_sub_field('options');
                         if ($total_rows >= 5) {
                             $class_last_three = $i >= 3 ? ' categories__item--small' : '';
+                        } else if ($total_rows == 3) {
+                            $class_last_three = ' categories__item--small';
                         }
                         ?>
                         <div class="categories__item<?= $class_last_three; ?>">

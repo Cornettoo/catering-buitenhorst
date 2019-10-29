@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="navbar__wrapper col-12">
                         <a class="navbar__logo" href="<?= get_site_url(); ?>">
-                           <img src="<?= get_template_directory_uri(); ?>/assets/img/logo.svg" alt="Catering Buitenhorst logo">
+                           <img src="<?= get_template_directory_uri(); ?>/dist/images/logo.svg" alt="Catering Buitenhorst logo">
                         </a>
                         
                         <ul class="navbar__menu">
