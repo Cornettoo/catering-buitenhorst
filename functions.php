@@ -3,7 +3,7 @@ require_once(__DIR__ . '/includes/autoload.php');
 
 function add_js_and_css() {
     global $wp_scripts;
-    wp_enqueue_style( 'global', get_template_directory_uri() . '/dist/style/bundle.css', [], '1.0.3' );
+    wp_enqueue_style( 'global', get_template_directory_uri() . '/dist/style/bundle.css', [], '1.0.4' );
 }
 add_action( 'wp_enqueue_scripts', 'add_js_and_css' );
 
