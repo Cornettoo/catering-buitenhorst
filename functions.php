@@ -55,3 +55,14 @@ function my_wpseo_breadcrumb_links( $links ) {
 
 // Disable Gutenberg
 add_filter('use_block_editor_for_post', '__return_false', 10);
+
+// Login page
+add_action( 'login_enqueue_scripts', 'ac_custom_login' );
+function ac_custom_login() {
+    wp_enqueue_style( 'ac-custom-login', get_stylesheet_directory_uri(). '/dist/style/login.css', ['login'] );
+}
+
+add_filter( 'login_headerurl', 'ac_custom_url' );
+function ac_custom_url($url) {
+    return 'https://www.accepta.eu';
+}
