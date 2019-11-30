@@ -2,10 +2,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-4 footer__item">
-                        <?php 
-                        if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer1') ) : 
-                        endif;    
-                        ?>
+                        <h3><?php the_field('footer_title', 'options'); ?></h3>
+                        <ul>
+                            <?php
+                            while (have_rows('links', 'options')) : the_row();
+                                $link = get_sub_field('link');
+                                ?>
+                                <li>
+                                    <a href="<?= $link['url']; ?>" target="<?= $link['target']; ?>"><?= $link['title']; ?></a>
+                                </li>
+                                <?php
+                            endwhile;
+                            ?>
+                        </ul>
                     </div>
                     <div class="col-sm-6 col-lg-4 col-xl-3 footer__item">
                         <?php 
