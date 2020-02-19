@@ -68,8 +68,11 @@ Font */
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-play:before {content: "\e902";}
-.icon-grill:before {content: "\e900";}
+.icon-balloon:before {content: "\e900";}
+.icon-cake:before {content: "\e901";}
+.icon-cutlery:before {content: "\e902";}
+.icon-gift:before {content: "\e903";}
+.icon-picnic:before {content: "\e904";}
 .icon-instagram:before {content: "\41";}
 .icon-star:before {content: "\42";}
 .icon-location:before {content: "\43";}
@@ -92,6 +95,8 @@ Font */
 .icon-fish:before {content: "\55";}
 .icon-soy:before {content: "\56";}
 .icon-mustard:before {content: "\57";}
+.icon-grill:before {content: "\e905";}
+.icon-play:before {content: "\e906";}
 
 // Global
 html {

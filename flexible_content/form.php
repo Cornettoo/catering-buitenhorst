@@ -20,6 +20,9 @@ $form = get_sub_field('form');
                     case 'contact':
                         echo do_shortcode('[contact-form-7 id="207" title="Contactformulier"]');
                         break;
+                    case 'picnic':
+                        echo do_shortcode('[contact-form-7 id="2481" title="Picknick formulier"]');
+                        break;
                 }
                 ?>
             </div>
