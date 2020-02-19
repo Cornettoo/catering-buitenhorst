@@ -36,9 +36,6 @@ $image = get_field('header_image');
                 <h2><?php the_field('title_form') ?></h2>
                 <?= do_shortcode('[contact-form-7 id="207" title="Contactformulier"]'); ?>
             </div>
-            <div class="col-12 form">
-                <?php echo do_shortcode('[contact-form-7 id="2210" title="Picknick formulier"]'); ?>
-            </div>
         </div>
     </div>
 </section>
