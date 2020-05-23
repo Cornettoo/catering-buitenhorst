@@ -1,19 +1,33 @@
 .header {
-    height: 35rem;
-    background-size: cover;
-    background-position: center center;
-    &.header--text {
-        height: auto;
-        padding: 20rem 0;
-        background-position: center 20%;
-        h1, h3 {
-            color: $color-white;
-        }
-        h3 {
-            font-size: 1.6rem;
-            margin: 0 0 5rem 0;
-            letter-spacing: 3px;
-            font-weight: 600;
-        }
-    }
+	height: 35rem;
+	background-size: cover;
+	background-position: center center;
+
+	&.header--text {
+		height: auto;
+		padding: 20rem 0;
+		background-position: center 20%;
+
+		h1,
+		h3 {
+			color: $color-white;
+		}
+
+		h1 {
+			font-size: 5.5rem;
+		}
+
+		h3 {
+			font-size: 1.6rem;
+			margin: 0 0 5rem 0;
+			letter-spacing: 3px;
+			font-weight: 600;
+		}
+	}
+
+	.button {
+		&--third {
+			margin: 0 1rem 1rem 0;
+		}
+	}
 }

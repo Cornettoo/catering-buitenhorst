@@ -12,22 +12,26 @@ $sort_cats = get_sub_field('sort_categories');
         <div class="row">
             <?php
             if ($sort_cats == 'edited') {
-                ?>
-                <div class="col-12 col-lg-10 offset-lg-1 categories__wrapper">
-                    <?php
-                    $total_rows = count(get_sub_field('categories_edited'));
+					$total_rows = count(get_sub_field('categories_edited'));
+					?>
+                <div class="col-12 col-lg-10 offset-lg-1 categories__wrapper <?php echo $total_rows >= 5 ? 'grid' : ''; ?>">
+						<?php
+						$i = 0;
                     while (have_rows('categories_edited')) : the_row();
-                        $i++;
+								$i++;
                         $image = get_sub_field('image');
                         $icon = get_sub_field('icon');
-                        $options = get_sub_field('options');
+								$options = get_sub_field('options');
+								
                         if ($total_rows >= 5) {
-                            $class_last_three = $i >= 3 ? ' categories__item--small' : '';
+									$class_last_three = $i >= 3 ? ' categories__item--small' : '';
                         } else if ($total_rows == 3) {
                             $class_last_three = ' categories__item--small';
-                        }
+								} else {
+									$class_last_three = '';
+								}
                         ?>
-                        <div class="categories__item<?= $class_last_three; ?>">
+                        <div class="categories__item <?= $class_last_three; ?>">
                             <?php
                             if ($options == 'link') {
                                 ?>

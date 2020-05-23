@@ -5,14 +5,27 @@ $padding_bottom = get_sub_field('padding_bottom');
 
 // Block options
 $options = get_sub_field('options');
+
+// Title
+$title = get_sub_field('title');
+$titleHeading = get_sub_field('title_heading');
 ?>
 
 <section class="text padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2 text__wrapper list--line">
-                <h2><?php the_sub_field('title'); ?></h2>
-                <?php 
+					<?php
+					if ($titleHeading)  {
+						?>
+						<<?= $titleHeading; ?>><?= $title; ?></<?= $titleHeading; ?>>
+						<?php 
+					} else {
+						?>
+						<h2><?= $title; ?></h2>
+						<?php
+					}
+					
                 the_sub_field('text'); 
                 
                 if ($options && in_array('columns', $options)) :

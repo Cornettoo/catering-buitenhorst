@@ -1,26 +1,41 @@
 .text {
-    .text-columns {
-        display: flex;
-        flex-flow: wrap;
-        width: 100%;
-        margin: 0 0 3rem 0;
-        &:last-child {
-            margin-bottom: 0;
-        }
-        &__column {
-            width: 50%;
-            ul {
-                margin-bottom: 0;
-            }
-        }
-    }
-    &__wrapper {
-        p {
-            margin-bottom: 3rem;
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-    }
+	.text-columns {
+		display: flex;
+		flex-flow: wrap;
+		width: 100%;
+		margin: 0 0 3rem 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&__column {
+			width: 50%;
+
+			ul {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__wrapper {
+		h2, h3, h4 {
+			&:not(:first-child) {
+				margin-top: 2.5rem
+			}
+		}
+
+		p {
+			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		a.button {
+			margin-top: 1rem;
+		}
+	}
 
 }

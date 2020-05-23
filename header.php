@@ -23,11 +23,10 @@
                         </ul>
 
                         <div class="navbar__button">
-                            <?php
-                            $term = get_term(14, 'assortment-categories');
-                            $term_link = get_term_link($term);
-                            ?>
-                            <a href="<?= $term_link; ?>" class="button button--primary"><?= __('Broodjes', 'buitenhorst'); ?></a>
+									<?php 
+									$navButton = get_field('nav_button', 'options');
+									?>
+									<a href="<?= $navButton['url']; ?>" target="<?= $navButton['target']; ?>" class="button button--primary"><?= $navButton['title'] ?></a>
                         </div>
 
                         <div class="navbar__hamburger">
@@ -44,7 +43,7 @@
                 <div class="container">
                     <ul>
                         <?php 
-                        wp_nav_menu(['container' => false, 'theme_location' => 'secondary', 'items_wrap' => '%3$s', 'depth' => 0]);
+                        wp_nav_menu(['container' => false, 'theme_location' => 'primary', 'items_wrap' => '%3$s', 'depth' => 0 ]);
                         ?>
                     </ul>
                 </div>
