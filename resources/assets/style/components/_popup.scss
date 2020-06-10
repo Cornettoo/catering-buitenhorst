@@ -1,71 +1,120 @@
 .popup {
-    box-shadow: $box-shadow-primary;
-    &__wrapper {
-        display: flex;
-        flex-flow: wrap;
-    }
-    &__info, &__image {
-        width: 50%;
-    }
-    &__image {
-        background-size: cover;
-        background-position: center center;
-    }
-    &__info {
-        position: relative;
-        padding: 7rem 3rem;
-        h3 {
-            font-size: 2.5rem;
-            margin: 0 0 .3rem 0;
-        }
-    }
-    &__nutritional-values {
-        margin-top: 4rem;
-    }
-    &__close {
-        position: absolute;
-        top: 1.5rem;
-        right: 3rem;
-        display: inline;
-        padding: 1rem 1.8rem;
-        font-size: 1.3rem;
-        font-weight: 700;
-        line-height: 1;
-        color: $color-white;
-        border-radius: 4rem;
-        background-color: $color-dark;
-        cursor: pointer;
-        transition: $transition-primary;
-        &:hover {
-            background-color: darken($color-dark, 7%);
-        }
-    }
-}
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 15px;
+	background-color: rgba(255, 255, 255, .85);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .3s ease-in-out;
 
-// Fancybox
-.fancybox {
-    &-active {
-        .navbar--fixed-top {
-            right: 17px;
-        }
-    }
-    &-container {
-        overflow-y: scroll;
-    }
-    &-slide--html {
-        .fancybox-content {
-            width: 110rem;
-            margin: 0;
-            padding: 0;
-            border-radius: 1rem;
-        }
-    }
-    &-is-open {
-        .fancybox-bg {
-            opacity: .6;
-        }
-    }
-    &-bg {
-        background: $color-white;
-    }
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	&__wrapper {
+		position: relative;
+		display: flex;
+		flex-flow: wrap;
+		width: 110rem;
+		border-radius: 1rem;
+		background-color: white;
+		min-height: 40vh;
+		box-shadow: $box-shadow-primary;
+
+		@media (min-width: 768px) {
+			overflow: hidden;
+		}
+	}
+
+	&__info,
+	&__image {
+		width: 50%;
+	}
+
+	&__image {
+		position: relative;
+		overflow: hidden;
+		border-radius: 1rem 1rem 0 0;
+
+		@media (min-width: 768px) {
+			border-radius: 0;
+		}
+
+		figure, img {
+			width: 100%;
+			height: 100%;
+		}
+
+		figure {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-position: center center;
+			background-size: cover;
+		}
+
+		img {
+			object-fit: cover;
+		}
+	}
+
+	&__info {
+		position: relative;
+		padding: 7rem 3rem;
+
+		h3 {
+			font-size: 2.5rem;
+			margin: 0 0 .3rem 0;
+		}
+
+		.newsletter__form {
+			width: 100%;
+			padding: 0;
+			margin-top: 3rem;
+			max-width: unset;
+
+			input {
+				&:focus {
+					border-color: $color-third;
+				}
+			}
+		}
+	}
+
+	&__nutritional-values {
+		margin-top: 4rem;
+	}
+
+	&__close {
+		position: absolute;
+		top: 1.5rem;
+		right: 0;
+		display: inline;
+		padding: 1rem 1.8rem;
+		font-size: 1.3rem;
+		font-weight: 700;
+		line-height: 1;
+		color: $color-white;
+		border-radius: 4rem;
+		background-color: $color-dark;
+		cursor: pointer;
+		z-index: 99;
+		transition: $transition-primary;
+		
+		@media (min-width: 768px) {
+			right: 3rem;
+		}
+
+		&:hover {
+			background-color: darken($color-dark, 7%);
+		}
+	}
 }

@@ -338,8 +338,7 @@ table {
 		}
 
 		td {
-			padding: 0.4rem 0;
-			font-size: 1.4rem;
+			padding: .5rem 0;
 
 			&:first-child {
 				border-right: 1px solid darken($color-light, 15%);
@@ -590,6 +589,12 @@ ul {
 
 
 			&.current_page_item,
+			&:hover {
+				>a {
+					color: $color-primary;
+				}
+			}
+
 			&:hover {
 				>a {
 					color: $color-primary;
@@ -945,7 +950,7 @@ ul {
 			justify-content: space-between;
 			width: 100%;
 			padding: 1rem 0;
-			margin-top: 4rem;
+			margin-top: 8rem;
 			border-top: 1px solid darken($color-secondary, 5%);
 		}
 

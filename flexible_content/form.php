@@ -21,7 +21,13 @@ $form = get_sub_field('form');
                         echo do_shortcode('[contact-form-7 id="207" title="Contactformulier"]');
                         break;
                     case 'picnic':
-                        echo do_shortcode('[contact-form-7 id="2481" title="Picknick formulier"]');
+								echo do_shortcode('[contact-form-7 id="2481" title="Picknick formulier"]');
+                        break;
+                    case 'picnic_regular':
+								echo do_shortcode('[forminator_form id="2947"]');
+                        break;
+                    case 'picnic_luxe':
+								echo do_shortcode('[forminator_form id="2946"]');
                         break;
                 }
                 ?>
