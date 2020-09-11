@@ -54,66 +54,6 @@ $image = get_sub_field('image');
 									?>
 									</table>   
 								</div>
-								<div class="tables__table col-12 col-md-4">
-									<h5><?php the_sub_field('title'); ?></h5>
-									<table>
-									<?php
-									while (have_rows('options')) : the_row();
-										?>
-										<tr>
-												<td><?php the_sub_field('title'); ?></td>
-												<td>€ <?php the_sub_field('price'); ?></td>
-										</tr>
-										<?php
-									endwhile;
-									?>
-									</table>   
-								</div>
-								<div class="tables__table col-12 col-md-4">
-									<h5><?php the_sub_field('title'); ?></h5>
-									<table>
-									<?php
-									while (have_rows('options')) : the_row();
-										?>
-										<tr>
-												<td><?php the_sub_field('title'); ?></td>
-												<td>€ <?php the_sub_field('price'); ?></td>
-										</tr>
-										<?php
-									endwhile;
-									?>
-									</table>   
-								</div>
-								<div class="tables__table col-12 col-md-4">
-									<h5><?php the_sub_field('title'); ?></h5>
-									<table>
-									<?php
-									while (have_rows('options')) : the_row();
-										?>
-										<tr>
-												<td><?php the_sub_field('title'); ?></td>
-												<td>€ <?php the_sub_field('price'); ?></td>
-										</tr>
-										<?php
-									endwhile;
-									?>
-									</table>   
-								</div>
-								<div class="tables__table col-12 col-md-4">
-									<h5><?php the_sub_field('title'); ?></h5>
-									<table>
-									<?php
-									while (have_rows('options')) : the_row();
-										?>
-										<tr>
-												<td><?php the_sub_field('title'); ?></td>
-												<td>€ <?php the_sub_field('price'); ?></td>
-										</tr>
-										<?php
-									endwhile;
-									?>
-									</table>   
-								</div>
 								<?php
 							endwhile;
 							?>
