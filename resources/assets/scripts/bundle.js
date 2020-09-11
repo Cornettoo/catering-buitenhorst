@@ -92,4 +92,3 @@ jQuery(function ($) {
 
 // Import files
 import './components/object-fit';
-import './components/timer';

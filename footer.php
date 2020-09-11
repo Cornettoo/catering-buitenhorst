@@ -64,37 +64,6 @@
         	</div>
 		</footer>
 
-
-		<div id="popup-newsletter" class="popup">
-			<div class="popup__wrapper">
-				<div class="popup__close">Sluiten</div>
-				<div class="popup__image">
-					<figure class="image">
-						<?php
-						$imageId = get_field('news_image', 'options');
-						$image = wp_get_attachment_image($imageId, 'full');
-
-						echo $image;
-						?>
-					</figure>
-				</div>
-				<div class="popup__info">
-					<h3><?php the_field('news_title', 'options'); ?></h3>
-					<?php the_field('news_text', 'options'); ?>
-
-					<div class="newsletter__form form">
-						<form action="https://cateringbuitenhorst.us17.list-manage.com/subscribe/post?u=8cfce515236d967c115874406&amp;id=35c6a82138" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<div id="mc_embed_signup_scroll">
-								<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="E-mailadres" required>
-								<button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button button--submit"><i class="icon-arrow"></i></button>
-							</div>
-						</form>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
 		<?php wp_footer(); ?>
 	</body>
 </html>
