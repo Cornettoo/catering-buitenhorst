@@ -526,7 +526,7 @@ ul {
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 2.5rem 0;
+		padding: 1.5rem 0;
 		z-index: 1029;
 		box-shadow: 0 0 .4rem 0 rgba(0, 0, 0, .1);
 		background-color: $color-white;
@@ -540,7 +540,11 @@ ul {
 	}
 
 	&__logo img {
-		width: 7rem;
+		width: 13rem;
+		
+		@include media-breakpoint-up(md) {
+			width: 15rem;
+		}
 	}
 
 	&__menu {
