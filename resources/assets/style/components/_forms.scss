@@ -242,6 +242,13 @@ Chrome/Opera/Safari */
 		input {
 			border-color: $color-error;
 		}
+
+		.forminator-radio,
+		.forminator-checkbox {
+			span::before {
+				border-color: $color-error;
+			}
+		}
 	}
 
 	// Field styles

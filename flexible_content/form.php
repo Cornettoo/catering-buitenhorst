@@ -29,6 +29,9 @@ $form = get_sub_field('form');
                     case 'picnic_luxe':
 								echo do_shortcode('[forminator_form id="2946"]');
                         break;
+                    case 'high_tea':
+								echo do_shortcode('[forminator_form id="3612"]');
+                        break;
                 }
                 ?>
             </div>
