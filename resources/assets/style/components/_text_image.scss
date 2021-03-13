@@ -1,0 +1,43 @@
+.text-image {
+	position: relative;
+	padding: 4rem 0;
+	background-color: $color-tertiary;
+	color: white;
+	z-index: 1;
+	overflow: hidden;
+
+	@include media-breakpoint-up(md) {
+		padding: 6rem 0;
+	}
+
+	@include media-breakpoint-up(xl) {
+		padding: 10rem 0;
+	}
+
+	&__text {
+		@media (min-width: 1900px) {
+			max-width: 90rem;
+		}
+	}
+
+	&__image {
+		@include media-breakpoint-down(sm) {
+			margin-top: 3rem;
+			max-height: 35rem;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		transform: translate3d(8rem, 2.9rem, 0);
+	}
+}

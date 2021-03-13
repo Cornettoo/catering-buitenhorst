@@ -2,22 +2,26 @@
 Variables
 Standard grid settings */
 $grid-columns: 12;
-$grid-gutter-width: 30px;
+$grid-gutter-width: 40px;
 
 $container-max-widths: (sm: 540px,
 	md: 720px,
 	lg: 960px,
-	xl: 1140px);
+	xl: 1140px,
+	xxl: 1600px);
 
 // Fonts
 $font-primary: 'Open Sans',
 sans-serif;
+$font-secondary: 'Larken',
+sans-serif;
 
 // Colors
-$color-primary: #ED9121;
-$color-secondary: #3bba7a;
+$color-primary: #FAAA35;
+$color-secondary: #023C2C;
 $color-third: #EDEDED;
-$color-dark: #504746;
+$color-tertiary: #7B2234;
+$color-dark: #000000;
 $color-grey: #949494;
 $color-light: #F8F8F8;
 $color-white: #FFFFFF;
@@ -32,15 +36,24 @@ $box-shadow-secondary: 0 0 28px rgba(0, 0, 0, 0.08);
 $transition-primary: .3s all cubic-bezier(.38, .4, .25, .89);
 $transition-primary-fast: .2s all cubic-bezier(.38, .4, .25, .89);
 $transition-primary-slow: .4s all cubic-bezier(.38, .4, .25, .89);
-
+$ease: cubic-bezier(.38, .4, .25, .89);
 
 /**
 Imports
 Font */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 // SCSS
 @import 'components/**/*.scss';
+
+@font-face {
+	font-family: 'Larken';
+	src: url('../fonts/Larken/Larken-Medium.woff2') format('woff2'),
+		url('../fonts/Larken/Larken-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
 
 // Icons
 @font-face {
@@ -66,6 +79,14 @@ Font */
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+	content: "\e908";
+}
+
+.icon-bag:before {
+	content: "\e909";
 }
 
 .icon-balloon:before {
@@ -202,15 +223,25 @@ body {
 	line-height: 30px;
 	font-family: $font-primary;
 	font-size: 1.5rem;
-	letter-spacing: .3px;
 	color: $color-dark;
-	padding-top: 12rem;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+	@include media-breakpoint-up(lg) {
+		font-size: 1.6rem;
+	}
+
 	&.scrolled {
-		.navbar--fixed-top {
-			padding: 1rem 0;
+		.navbar {
+			&--fixed-top {
+				padding: 2rem 0;
+				background-color: $color-secondary;
+			}
+
+			&__logo img {
+				width: 5rem;
+				opacity: 0;
+			}
 
 			ul.sub-menu {
 				margin-top: 29px;
@@ -248,9 +279,50 @@ section {
 			padding-bottom: 10rem;
 		}
 	}
+
+	&.margin-top {
+		&--none {
+			margin-top: 0;
+		}
+
+		&--medium {
+			margin-top: 5rem;
+		}
+
+		&--large {
+			margin-top: 10rem;
+		}
+	}
+
+	&.margin-bottom {
+		&--none {
+			margin-bottom: 0;
+		}
+
+		&--medium {
+			margin-bottom: 5rem;
+		}
+
+		&--large {
+			margin-bottom: 10rem;
+		}
+	}
 }
 
 // Titels
+h1,
+h2 {
+	font-family: $font-secondary;
+	font-weight: 400;
+	font-size: 3.5rem;
+	margin-bottom: 1.5rem;
+
+	@include media-breakpoint-up(lg) {
+		font-size: 4.6rem;
+		margin-bottom: 2rem;
+	}
+}
+
 h1,
 h2,
 h3,
@@ -259,10 +331,6 @@ h6 {
 }
 
 h1 {
-	font-size: 4.2rem;
-	letter-spacing: .35px;
-	margin-bottom: 2.5rem;
-
 	&.small {
 		font-size: 3rem;
 		margin-bottom: 1.5rem;
@@ -270,12 +338,10 @@ h1 {
 }
 
 h2 {
-	font-size: 3.5rem;
-	font-weight: 700;
-	margin-bottom: 1.5rem;
-
-	&.medium {
-		font-size: 3rem;
+	@include media-breakpoint-up(xl) {
+		&:not(.medium) {
+			font-size: 5.6rem;
+		}
 	}
 }
 
@@ -314,6 +380,10 @@ a {
 	&:hover {
 		text-decoration: none;
 	}
+}
+
+.center {
+	text-align: center;
 }
 
 // Table
@@ -463,10 +533,10 @@ ul {
 
 // Buttons
 .button {
-	border-radius: 3rem;
-	font-weight: 700;
-	padding: .9rem 3rem;
-	color: $color-white;
+	border-radius: 1.4rem;
+	font-weight: 600;
+	padding: .9rem 2.4rem;
+	color: $color-dark;
 	display: inline-block;
 	border: none;
 	transition: $transition-primary;
@@ -480,11 +550,13 @@ ul {
 		outline: 0;
 	}
 
-	&.button--primary {
+	&.button--primary,
+	&.checkout-button,
+	&#place_order {
 		background-color: $color-primary;
 
 		&:hover {
-			color: $color-white;
+			color: $color-dark;
 			background-color: lighten($color-primary, 5%);
 		}
 	}
@@ -495,7 +567,6 @@ ul {
 
 	&.button--third {
 		background-color: $color-white;
-		color: $color-dark;
 
 		&:hover {
 			background-color: darken($color-white, 7%);
@@ -526,11 +597,80 @@ ul {
 		top: 0;
 		left: 0;
 		right: 0;
-		padding: 1.5rem 0;
+		padding: 2.3rem 0 0;
 		z-index: 1029;
-		box-shadow: 0 0 .4rem 0 rgba(0, 0, 0, .1);
-		background-color: $color-white;
 		transition: .3s padding ease-in-out;
+		background-color: transparent;
+		transition: .3s background-color $ease;
+	}
+
+	&__left,
+	&__right {
+		display: flex;
+		align-items: center;
+		width: 37%;
+	}
+
+	&__left {
+		.navbar__menu {
+			@include media-breakpoint-down(lg) {
+				display: none;
+			}
+		}
+	}
+
+	&__right {
+		justify-content: flex-end;
+
+		a {
+			line-height: 0;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+				
+				@include media-breakpoint-up(md) {
+					margin-right: 3rem;
+				}
+			}
+
+		}
+		i {
+			color: white;
+			font-size: 2.2rem;
+		}
+
+		.cart-total {
+			position: relative;
+			margin-right: 1rem;
+
+			span {
+				position: absolute;
+				top: -0.4rem;
+				right: -1.1rem;
+				color: black;
+				padding: 0.4rem;
+				font-weight: 700;
+				font-size: 1.1rem;
+				z-index: 9;
+
+				&::before {
+					content: '';
+					position: absolute;
+					top: 50%;
+					right: 0;
+					bottom: 0;
+					left: 50%;
+					transform: translate3d(-50%, -50%, 0);
+					border-radius: 2rem;
+					width: 100%;
+					z-index: -1;
+					height: 2rem;
+					min-width: 2rem;
+					background-color: $color-primary;
+				}
+
+			}
+		}
 	}
 
 	&__wrapper {
@@ -540,10 +680,16 @@ ul {
 	}
 
 	&__logo img {
-		width: 13rem;
-		
+		width: 15rem;
+		transition: .3s opacity $ease,
+			.3s width $ease;
+
 		@include media-breakpoint-up(md) {
-			width: 15rem;
+			width: 19.2rem;
+		}
+
+		@media (min-width: 1460px) {
+			width: 24.2rem;
 		}
 	}
 
@@ -658,7 +804,7 @@ ul {
 			}
 
 			a {
-				color: $color-dark;
+				color: $color-white;
 				font-weight: 700;
 				font-size: 1.5rem;
 				text-decoration: none;
@@ -668,77 +814,92 @@ ul {
 	}
 
 	$bar-width: 20px;
-	$bar-height: 2px;
-	$bar-spacing: 7px;
 
 	&__hamburger {
 		position: relative;
-		width: $bar-width;
-		height: $bar-height + $bar-spacing * 2;
 		cursor: pointer;
-		display: none;
+		margin-right: 3.5rem;
+
+		&-wrapper {
+			display: flex;
+			align-items: center;
+
+			&:hover span {
+				color: $color-primary;
+			}
+
+			span {
+				color: white;
+				font-weight: 600;
+				margin-left: .8rem;
+				transition: 0.3s color cubic-bezier(0.38, 0.4, 0.25, 0.89);
+
+				@include media-breakpoint-down(sm) {
+					display: none;					
+				}
+			}
+		}
 	}
 
 	&__hamburger-bar {
 		position: relative;
-		transform: translateY($bar-spacing);
-		background: $color-dark;
-		width: $bar-width;
-		height: $bar-height;
+		width: 2.8rem;
+		height: 2.8rem;
+		border-radius: 50%;
+		border: 1px solid white;
 		transition: all 0s .3s;
 
 		&:before,
 		&:after {
 			content: '';
-			width: $bar-width;
-			height: $bar-height;
+			width: 13px;
+			height: 1px;
 			position: absolute;
-			left: 0;
-			background: $color-dark;
+			left: 50%;
+			transform: translate3d(-50%, 0, 0);
+			background: white;
+			transition: .3s transform cubic-bezier(0.23, 1, 0.32, 1);
 		}
 
 		&:after {
-			top: $bar-spacing;
-			transition: .3s .3s top cubic-bezier(0.23, 1, 0.32, 1), .3s transform cubic-bezier(0.23, 1, 0.32, 1);
+			top: 40%;
 		}
 
 		&:before {
-			bottom: $bar-spacing;
-			transition: .3s .3s bottom cubic-bezier(0.23, 1, 0.32, 1), .3s transform cubic-bezier(0.23, 1, 0.32, 1);
+			bottom: 40%;
 		}
 	}
 
-	&__hamburger-bar--animate {
-		background: transparent;
-
+	&__hamburger-bar--close {
 		&:after {
-			top: 0;
-			transform: rotate(45deg);
-			transition: .3s top cubic-bezier(0.23, 1, 0.32, 1), .3s .3s transform cubic-bezier(0.23, 1, 0.32, 1);
+			transform: translate3d(-50%, 3px, 0) rotate(45deg);
 		}
 
 		&:before {
-			bottom: 0;
-			transform: rotate(-45deg);
-			transition: .3s top cubic-bezier(0.23, 1, 0.32, 1), .3s .3s transform cubic-bezier(0.23, 1, 0.32, 1);
+			transform: translate3d(-50%, -2px, 0) rotate(-45deg);
 		}
 	}
 }
 
 .mobile-menu {
-	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	width: 100%;
+	max-width: 100%;
+	width: 42rem;
 	height: 100%;
-	z-index: 1028;
+	z-index: 1030;
 	overflow-y: auto;
-	background-color: $color-white;
-	transform: translateY(-100%);
+	padding: 2rem;
+	transform: translateX(-100%);
 	transition: .3s transform ease-in-out;
+	background-color: $color-secondary;
+
+	@include media-breakpoint-up(md) {
+		padding: 5rem;
+	}
 
 	&__wrapper {
 		height: 100%;
@@ -752,10 +913,9 @@ ul {
 			padding: 0;
 			display: flex;
 			flex-flow: column;
-			align-items: center;
 
 			&:not(.sub-menu) {
-				padding-top: 19rem;
+				padding-top: 10vh;
 				padding-bottom: 5rem;
 			}
 
@@ -768,8 +928,9 @@ ul {
 
 				&.active {
 					.menu-dropdown {
-						transform: translate3d(4.5rem, -45%, 0) scale3d(1, -1, 1);
+						transform: scale3d(1, -1, 1);
 					}
+
 					.sub-menu {
 						opacity: 1;
 					}
@@ -778,18 +939,16 @@ ul {
 				.menu-dropdown {
 					padding: 1rem;
 					z-index: 9999;
-					position: absolute;
-					top: 50%;
-					right: 0;
-					transform: translate3d(4.5rem, -45%, 0) scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1);
 					cursor: pointer;
 					background: $color-third;
 					border-radius: 50%;
 					width: 3rem;
 					height: 3rem;
-					display: flex;
+					display: inline-flex;
 					align-items: center;
 					justify-content: center;
+					margin-left: 1rem;
 
 					&:after {
 						content: "\e907";
@@ -812,7 +971,7 @@ ul {
 				a {
 					font-size: 2rem;
 					font-weight: 600;
-					color: $color-dark;
+					color: white;
 					text-decoration: none;
 					white-space: nowrap;
 				}
@@ -833,13 +992,32 @@ ul {
 				font-size: 1.8rem;
 			}
 		}
+
+		.navbar__hamburger {
+			&-bar {
+				border-color: white;
+
+				&:before,
+				&:after {
+					background-color: white;
+				}
+			}
+
+			&-wrapper {
+
+				span {
+					color: white;
+				}
+			}
+		}
 	}
 }
 
 .nav-open {
 	overflow: hidden;
+
 	.mobile-menu {
-		transform: translateY(0);
+		transform: translateX(0);
 
 		&__wrapper {
 			@for $i from 0 to 5 {
@@ -857,12 +1035,16 @@ ul {
 	&-page-dots {
 		bottom: -3rem;
 
+		@include media-breakpoint-up(md) {
+			bottom: -4rem;
+		}
+
 		.dot {
-			width: 1.5rem;
-			height: 0.4rem;
+			width: .7rem;
+			height: .7rem;
 			border-radius: 1rem;
-			margin: 0 .5rem;
-			opacity: 0.45;
+			margin: 0 .7rem;
+			opacity: 0.2;
 			background: $color-secondary;
 		}
 	}
@@ -883,7 +1065,7 @@ ul {
 		color: $color-white;
 
 		&:hover {
-			color: $color-dark;
+			color: $color-primary;
 		}
 	}
 
@@ -894,7 +1076,7 @@ ul {
 	&__item {
 		&-sc-rv {
 			padding-left: 4rem;
-			
+
 			.social {
 				margin-top: 4rem;
 

@@ -14,31 +14,34 @@ $image = get_sub_field('image');
 
 <header class="header header--<?= $header_type; ?>" style="background-image: url(<?= $image['url']; ?>)">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-					<?php
-					if ($options && in_array('text', $options)) :
-						?>
-						<h1><?php the_sub_field('title'); ?></h1>
-						<h3><?php the_sub_field('subtitle'); ?></h3>
-						<?php
-					endif;
+			<?php
+			if ($options && in_array('text', $options)) :
+				?>
+				<h1><?php the_sub_field('title'); ?></h1>
+				<?php
+			endif;
 
-					if ($options && in_array('button', $options)) :
-						$button = get_sub_field('button');
-						?>
-						<a href="<?= $button['url']; ?>" target="<?= $button['target']; ?>" class="button button--third"><?= $button['title']; ?></a>
-						<?php
-					endif;
-
-					if ($options && in_array('extra_button', $options)) :
-						$extra_button = get_sub_field('extra_button');
-						?>
-						<a href="<?= $extra_button['url']; ?>" target="<?= $extra_button['target']; ?>" class="button button--primary"><?= $extra_button['title']; ?></a>
-						<?php
-					endif;
-					?>
-            </div>
-        </div>
+			if ($options && in_array('button', $options)) :
+				$button = get_sub_field('button');
+				?>
+				<a href="<?= $button['url']; ?>" target="<?= $button['target']; ?>" class="button button--primary"><?= $button['title']; ?></a>
+				<?php
+			endif;
+			?>
     </div>
 </header>
+
+<div class="slider-list-wrapper">
+	<div class="container">
+		<ul class="list list--check slider-list">
+			<?php
+			while (have_rows('usp', 'options')) : the_row();
+				$rowIndex = get_row_index();
+				?>
+				<li <?php if ($rowIndex == 1) : ?>class="active"<?php endif; ?>><i class="icon-check"></i><?php the_sub_field('title'); ?></li>
+				<?php
+			endwhile;
+			?>
+		</ul>
+	</div>
+</div>

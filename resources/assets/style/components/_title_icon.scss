@@ -1,30 +1,40 @@
 // Title icon
 .title-icon {
-    &__wrapper {
-        display: flex;
-        flex-flow: wrap;
-        padding: 4rem 3rem;
-        border-radius: 1rem;
-        background-color: $color-secondary;
-        .item {
-            color: $color-white;
-            text-align: center;
-            width: 33.33333%;
-            padding: 0 4rem;
-            margin-bottom: 2rem;
-            &:nth-last-child(-n + 3):nth-child(3n + 1),
-            &:nth-last-child(-n + 3):nth-child(3n + 1) ~ div {
-                margin-bottom: 0;
-            }
-            h4 {
-                margin-bottom: 0;
-            }
-            i {
-                font-size: 4rem;
-                display: block;
-                margin-bottom: 1.3rem;
-                line-height: 1;
-            }
-        }
-    }
+	&__wrapper {
+		display: flex;
+		flex-flow: wrap;
+		padding: 4rem 3rem;
+		border-radius: 1rem;
+		background-color: $color-secondary;
+
+		@media (min-width: 1800px) {
+			width: 80%;
+			margin: 0 auto;
+			padding: 5rem 3rem;
+		}
+
+		.item {
+			color: $color-white;
+			text-align: center;
+			width: 33.33333%;
+			padding: 0 4rem;
+			margin-bottom: 2rem;
+
+			&:nth-last-child(-n + 3):nth-child(3n + 1),
+			&:nth-last-child(-n + 3):nth-child(3n + 1)~div {
+				margin-bottom: 0;
+			}
+
+			h4 {
+				margin-bottom: 0;
+			}
+
+			i {
+				font-size: 4rem;
+				display: block;
+				margin-bottom: 1.3rem;
+				line-height: 1;
+			}
+		}
+	}
 }

@@ -12,7 +12,6 @@ jQuery(function ($) {
 	$('.navbar__hamburger').on('click', function () {
 		$("body").toggleClass("nav-open");
 		$("html").toggleClass("not-scrollable");
-		$('.navbar__hamburger-bar').toggleClass('navbar__hamburger-bar--animate');
 	});
 
 	$('.mobile-menu .mobile-menu__wrapper .menu-item-has-children').append('<span class="menu-dropdown"></span>');
@@ -88,7 +87,28 @@ jQuery(function ($) {
 		});
 	};
 
+		// Slider list
+	let slidersList = document.querySelectorAll('.slider-list');
+	slidersList.forEach(slider => {
+		let listItems = slider.querySelectorAll('li'),
+			listItemsLength = listItems.length - 1,
+			activeListItem = listItems[0],
+			activeIndex = 0,
+			nextActiveIndex = 1;
+
+		setInterval(function () {
+			activeListItem.classList.remove('active');
+			listItems[nextActiveIndex].classList.add('active');
+
+			activeIndex = nextActiveIndex;
+			activeListItem = listItems[activeIndex];
+
+			nextActiveIndex = nextActiveIndex == listItemsLength ? 0 : nextActiveIndex + 1;
+		}, 4000);
+	});
+
 });
 
 // Import files
 import './components/object-fit';
+import './components/products';

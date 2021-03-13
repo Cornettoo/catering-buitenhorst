@@ -9,28 +9,16 @@ $button = get_sub_field('button');
 
 <section class="action padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
    <div class="container">
-      <div class="row">
-         <div class="col-12 col-lg-10 offset-lg-1">
-            <div class="action__wrapper">
-               <?php
-               if ($image) {
-                  ?>
-                  <div class="action__wrapper__image" style="background-image: url(<?= $image['url']; ?>);"></div>
-                  <?php
-               }
-               ?>
-               <div class="action__wrapper__content">
-                  <p><?php the_sub_field('title'); ?></p>
-                  <div class="action__prices">
-                     <span><?= __('Van', 'catering'); ?></span>
-                     <div class="badge badge--white">€ <?php the_sub_field('old_price'); ?></div> 
-                     <span><?= __('Nu', 'catering'); ?></span>
-                     <div class="badge badge--white badge--scaled">€ <?php the_sub_field('dicount_price'); ?></div>
-                  </div>
-                  <a href="<?= $button['url']; ?>" target="<?= $button['target']; ?>" class="button button--third"><?= $button['title']; ?></a>
-               </div>
-            </div>
-         </div>
-      </div>
+		<div class="action__wrapper">
+			<div class="action__wrapper__content text">
+				<h2><?php the_sub_field('title'); ?></h2>
+				<?php the_sub_field('text'); ?>
+				<a href="<?= $button['url']; ?>" target="<?= $button['target']; ?>" class="button button--primary"><?= $button['title']; ?></a>
+			</div>
+			<div class="action__wrapper__image">
+				<span class="badge-round"><?php the_sub_field('text_round'); ?></span>
+				<?php echo wp_get_attachment_image($image, 'large'); ?>
+			</div>
+		</div>
    </div>
 </section>

@@ -14,11 +14,8 @@ $form = get_sub_field('form');
                 <h2><?php the_sub_field('title'); ?></h2>
                 <?php
                 switch($form) {
-                    case 'quotation':
-                        echo do_shortcode('[contact-form-7 id="206" title="Offerte aanvragen"]');
-                        break;
                     case 'contact':
-                        echo do_shortcode('[contact-form-7 id="207" title="Contactformulier"]');
+                        echo do_shortcode('[forminator_form id="3636"]');
                         break;
                     case 'picnic':
 								echo do_shortcode('[contact-form-7 id="2481" title="Picknick formulier"]');

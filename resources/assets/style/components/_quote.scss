@@ -1,33 +1,46 @@
-// Quote
 .quote {
-    text-align: center;
-    &__wrapper {
-        max-width: 80rem;
-        margin: 0 auto;
+	text-align: center;
 
-    }
-    &__slide {
-        width: 100%;
-        h5, p {
-            font-style: italic;
-            font-size: 1.8rem;
-        }
-        p {
-            line-height: 4rem;
-            margin-bottom: 2rem;
-        }
-        h5 {
-            font-weight: 700;
-            margin-bottom: 0;
-        }
-    }
-    &__icon {
-        i {
-            font-size: 21rem;
-            color: #f7f7f7;
-            display: block;
-            margin: -3rem 0 -11rem;
-            color: $color-light;
-        }
-    }
+	&__wrapper {
+		max-width: 80rem;
+		margin: 0 auto 3rem;
+		
+		@include media-breakpoint-up(md) {
+			margin: 0 auto 4rem;
+		}
+	}	
+
+	&__slide {
+		width: 100%;
+
+		h5,
+		p {
+			font-size: 1.6rem;
+			
+			@include media-breakpoint-up(md) {
+				font-size: 1.8rem;
+			}
+		}
+
+		p {
+			line-height: 3.6rem;
+			margin-bottom: 2.5rem;
+
+			@include media-breakpoint-up(md) {
+				line-height: 3.6rem;
+				margin-bottom: 2.5rem;
+			}
+		}
+
+		h5 {
+			font-weight: 700;
+			margin-bottom: 0;
+		}
+	}
+
+	h2 {
+		@include media-breakpoint-up(md) {
+			margin-bottom: 3rem;
+		}
+	}
 }

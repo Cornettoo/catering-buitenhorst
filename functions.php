@@ -16,8 +16,8 @@ add_action('wp_footer', 'footer_enqueue');
 	
 function register_my_menus() {
     register_nav_menus([
-        'primary'       => __( 'Primary' ),
-        'secondary'     => __( 'Mobile' ),
+        'primary'       => __( 'Hoofdmenu' ),
+        'secondary'     => __( 'Zichtbaar in navigatie' ),
     ]);
 }
 add_action( 'init', 'register_my_menus' );
@@ -53,9 +53,6 @@ function my_wpseo_breadcrumb_links( $links ) {
     return $links;
 }
 
-// Disable Gutenberg
-add_filter('use_block_editor_for_post', '__return_false', 10);
-
 // Login page
 add_action( 'login_enqueue_scripts', 'ac_custom_login' );
 function ac_custom_login() {
@@ -65,4 +62,38 @@ function ac_custom_login() {
 add_filter( 'login_headerurl', 'ac_custom_url' );
 function ac_custom_url($url) {
     return 'https://www.accepta.eu';
+}
+
+// WC
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+function accepta_custom_show_sale_price( $old_display, $cart_item, $cart_item_key ) {
+	/** @var WC_Product $product */
+	$product = $cart_item['data'];
+	if ( $product ) {
+		return $product->get_price_html();
+	}
+	return $old_display;
+}
+add_filter( 'woocommerce_cart_item_price', 'accepta_custom_show_sale_price', 10, 3 );
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'accepta_add_to_cart_fragment' );
+function accepta_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+	$fragments['.cart-total-count'] = '<span class="cart-total-count">' . $woocommerce->cart->cart_contents_count . '</span>';
+ 	return $fragments;
+}
+
+// Remove checkout input fields
+add_filter( 'woocommerce_checkout_fields' , 'override_checkout_fields' );
+function override_checkout_fields( $fields ) {
+	unset($fields['billing']['billing_address_2']);
+
+	foreach ($fields as $category => $value) {
+		foreach ($fields[$category] as $field => $property) {
+			unset($fields[$category][$field]['placeholder']);
+		}
+	}
+
+	return $fields;
 }

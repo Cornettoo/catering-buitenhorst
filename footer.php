@@ -56,7 +56,7 @@
         			</div>
         			<div class="col-12 footer__bottom">
         				<div class="footer__bottom__wrapper">
-        					<p><?= __('Copyright Catering Buitenhorst', 'catering'); ?></p>
+        					<p><?= __('Copyright Buitenhorst Vers & Smakelijk', 'catering'); ?></p>
         					<p><?= __('Realisatie', 'catering'); ?>: <a href="https://accepta.eu" target="_blank">Accepta</a></p>
         				</div>
         			</div>

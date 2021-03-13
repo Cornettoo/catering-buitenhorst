@@ -1,0 +1,49 @@
+.slider-list-wrapper {
+	position: relative;
+	padding: 2.2rem 0;
+	background-color: $color-third;
+
+	@include media-breakpoint-up(lg) {
+		padding: 1rem 0;
+	}
+
+	ul {
+		display: flex;
+		justify-content: center;
+	}
+
+	li {
+		font-weight: 600;
+		transition: .3s opacity $ease;
+
+		@include media-breakpoint-down(md) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			opacity: 0;
+			width: 100%;
+			text-align: center;
+
+			&.active {
+				opacity: 1;
+			}
+		}
+		
+		&:not(:last-child) {
+			@include media-breakpoint-up(lg) {
+				margin-right: 3rem;
+			}
+
+			@include media-breakpoint-down(xl) {
+				margin-right: 5rem;
+			}
+		}
+
+		i {
+			color: #3BBA7A;
+			margin-right: 0.5rem;
+			font-size: 1.2rem;
+		}
+	}
+}

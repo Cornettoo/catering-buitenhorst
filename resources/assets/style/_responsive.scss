@@ -1,17 +1,5 @@
 // Large devices (desktops, less than 1200px)
 @include media-breakpoint-down(lg) {
-	.header {
-		&.header {
-			&--text {
-				padding: 15rem 0;
-			}
-
-			&--image {
-				height: 26rem;
-			}
-		}
-	}
-
 	.title-icon__wrapper .item {
 		padding: 0 3rem;
 	}
@@ -51,10 +39,6 @@
 		font-size: 58%;
 	}
 
-	.header h1 {
-		font-size: 4.5rem;
-	}
-
 	h1 {
 		font-size: 3.5rem;
 		margin-bottom: 2rem;
@@ -88,34 +72,34 @@
 				padding-bottom: 8rem;
 			}
 		}
-	}
 
-	.header {
-		&.header--text {
-			padding: 13rem 0;
-		}
-	}
+		&.margin-top {
+			&--none {
+				margin-top: 0;
+			}
 
-	.navbar {
-		&__wrapper {
-			justify-content: unset;
-		}
+			&--medium {
+				margin-top: 4rem;
+			}
 
-		&__menu {
-			display: none;
+			&--large {
+				margin-top: 8rem;
+			}
 		}
 
-		&__hamburger {
-			display: flex;
-		}
+		&.margin-bottom {
+			&--none {
+				margin-bottom: 0;
+			}
 
-		&__button {
-			margin: 0 4rem 0 auto;
-		}
-	}
+			&--medium {
+				margin-bottom: 4rem;
+			}
 
-	.mobile-menu {
-		display: block;
+			&--large {
+				margin-bottom: 8rem;
+			}
+		}
 	}
 
 	.footer {
@@ -181,10 +165,6 @@
 		min-height: 33rem;
 	}
 
-	.action__wrapper__content {
-		padding: 2rem 3rem;
-	}
-
 	.newsletter {
 		&__wrapper {
 			display: block;
@@ -197,16 +177,22 @@
 			margin-top: 2rem;
 		}
 	}
+
+	.categories {
+		&__item {
+			&__title {
+				h3 {
+					font-size: 1.6rem;
+				}
+			}
+		}
+	}
 }
 
 // Small devices (landscape phones, less than 768px)
 @include media-breakpoint-down(sm) {
-	body {
-		padding-top: 10rem;
-	}
-
 	h2 {
-		font-size: 3rem;	
+		font-size: 3.4rem;	
 
 		&.medium {
 			font-size: 2.5rem;
@@ -241,43 +227,32 @@
 				padding-bottom: 5rem;
 			}
 		}
-	}
-
-	.navbar {
-		&--fixed-top {
-			padding: 1.5rem 0;
-		}
-
-		&__button {
-			margin: 0 2rem 0 auto;
-
-			.button {
-				padding: 0.9rem 2rem;
-			}
-		}
-	}
-
-	.header {
-		&.header {
-			&--text {
-				position: relative;
-				padding: 7rem 0 !important;
-
-				&:before {
-					content: '';
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					opacity: .3;
-					background-color: $color-dark;
-				}
+		
+		&.margin-top {
+			&--none {
+				margin-top: 0;
 			}
 
-			&--image {
-				height: auto;
-				padding-bottom: 45%;
+			&--medium {
+				margin-top: 2rem;
+			}
+
+			&--large {
+				margin-top: 5rem;
+			}
+		}
+
+		&.margin-bottom {
+			&--none {
+				margin-bottom: 0;
+			}
+
+			&--medium {
+				margin-bottom: 2rem;
+			}
+
+			&--large {
+				margin-bottom: 5rem;
 			}
 		}
 	}
@@ -297,44 +272,9 @@
 	}
 
 	.categories {
-
-		&--edited .categories__wrapper.grid {
-			.categories__item {
-				&:nth-child(3n+4) {
-					margin-right: 0;
-					margin-left: 0;
-				}
-				
-				&:nth-child(odd) {
-					margin-right: 3rem;
-				}
-	
-			}
-		}
-
-		&--standard .categories__item,
-		&--edited .categories__item {
-			width: calc(50% - 1.5rem);
-
-			&:nth-child(odd) {
-				margin-right: 1.5rem;
-				margin-left: 0;
-			}
-
-			&:nth-child(even) {
-				margin-left: 1.5rem;
-				margin-right: 0;
-			}
-
-		}
-
 		&__item {
 			&__title {
 				padding: 1.8rem 1.5rem;
-
-				h3 {
-					font-size: 1.6rem;
-				}
 
 				.icon {
 					width: 4.5rem;
@@ -471,26 +411,21 @@
 		}
 	}
 
-	.action {
-		&__wrapper {
-			flex-flow: wrap;
-
-			&__image {
-				display: none;
-			}
-
-			.button {
-				margin: 2rem 0 0 0;
-			}
-		}
-
-		&__prices {
-			margin-bottom: 1rem;
-		}
-	}
-
 	.newsletter__wrapper {
 		padding: 2.5rem 1.5rem;
+	}
+
+	.text .text-columns {
+		display: block;
+
+		&__column {
+			width: 100%;
+			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 
@@ -597,19 +532,6 @@
 
 	}
 
-	.text .text-columns {
-		display: block;
-
-		&__column {
-			width: 100%;
-			margin-bottom: 2rem;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-
 	.images__slide {
 		padding-bottom: 75%;
 	}
@@ -626,24 +548,6 @@
 		}
 	}
 
-	.action {
-		&__wrapper {
-			&__content {
-				padding: 2rem;
-			}
-
-			p {
-				font-size: 2.2rem;
-				width: 100%;
-			}
-		}
-
-		&__prices {
-			width: 100%;
-			margin: 2rem 0;
-		}
-	}
-
 	.video__placeholder .play-button {
 		width: 6rem;
 		height: 6rem;
@@ -655,10 +559,6 @@
 }
 
 @media (max-height: 880px) {
-	.header.header--text {
-		padding: 13rem 0;
-	}
-
 	.fancybox {
 		&-active .navbar--fixed-top {
 			right: 0;

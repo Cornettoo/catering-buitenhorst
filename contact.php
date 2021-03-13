@@ -34,7 +34,7 @@ $image = get_field('header_image');
             </div>
             <div class="col-12 col-md-6 col-lg-5 col--form form">
                 <h2><?php the_field('title_form') ?></h2>
-                <?= do_shortcode('[contact-form-7 id="207" title="Contactformulier"]'); ?>
+                <?= do_shortcode('[forminator_form id="3636"]'); ?>
             </div>
         </div>
     </div>

@@ -239,7 +239,7 @@ Chrome/Opera/Safari */
 	}
 
 	&-has_error {
-		input {
+		input, textarea {
 			border-color: $color-error;
 		}
 
