@@ -58,8 +58,8 @@ $sort_cats = get_sub_field('sort_categories');
 						$terms = $cats['select_categories'];
 					} else {
 						$terms = get_terms([
-							'taxonomy' => 'assortment-categories',
-							'hide_empty' => false,
+							'taxonomy' => 'product_cat',
+							'hide_empty' => true,
 						]);
 					}
 

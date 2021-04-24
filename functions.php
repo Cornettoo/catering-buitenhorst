@@ -64,6 +64,9 @@ function ac_custom_url($url) {
     return 'https://www.accepta.eu';
 }
 
+// Disable Gutenberg
+add_filter( 'use_block_editor_for_post', '__return_false' );
+
 // WC
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 

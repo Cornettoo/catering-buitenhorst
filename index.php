@@ -42,11 +42,15 @@ if (is_cart() || is_checkout() || is_account_page()) {
 	</section>
 	<?php
 } else {
-	if (have_rows('flexible_content')) :
-		while (have_rows('flexible_content')) : the_row();
-			include('flexible_content/' . get_row_layout() . '.php');
-		endwhile;
-	endif;
+	if (is_tax( 'product_cat' )) {
+		get_template_part('template-parts/tax');
+	} else {
+		if (have_rows('flexible_content')) :
+			while (have_rows('flexible_content')) : the_row();
+				include('flexible_content/' . get_row_layout() . '.php');
+			endwhile;
+		endif;
+	}
 }
 
 get_footer();

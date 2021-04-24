@@ -54,6 +54,12 @@
 	}
 }
 
+.woocommerce-NoticeGroup-checkout {
+	li {
+		display: block;
+	}
+}
+
 .woocommerce-message {
 	display: inline-block;
 }
@@ -99,11 +105,17 @@
 }
 
 .cart-collaterals {
-	@include media-breakpoint-down(lg) {
-		margin-top: 2rem;
-		width: 100%;
-		display: flex;
-		justify-content: flex-end;
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+
+	@include media-breakpoint-up(xl) {
+		width: 34%;
+	}
+
+	@media (min-width: 1800px) {
+		width: 25%;
 	}
 }
 
@@ -114,7 +126,7 @@
 		width: 60%;
 	}
 
-	@media (min-width: 1400px) {
+	@media (min-width: 1800px) {
 		width: 70%;
 	}
 

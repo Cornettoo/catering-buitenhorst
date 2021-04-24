@@ -3,7 +3,23 @@
  * Template name: Assortiment
  */
 get_header(); 
+$header_image = get_the_post_thumbnail_url();
 ?>
+<header class="header header--image" style="background-image: url(<?= $header_image; ?>)"></header>
+<div class="slider-list-wrapper">
+	<div class="container">
+		<ul class="list list--check slider-list">
+			<?php
+			while (have_rows('usp', 'options')) : the_row();
+				$rowIndex = get_row_index();
+				?>
+				<li <?php if ($rowIndex == 1) : ?>class="active"<?php endif; ?>><i class="icon-check"></i><?php the_sub_field('title'); ?></li>
+				<?php
+			endwhile;
+			?>
+		</ul>
+	</div>
+</div>
 
 <section class="categories categories--<?= $sort_cats; ?> padding-top--<?= $padding_top; ?> padding-bottom--<?= $padding_bottom; ?>">
     <div class="container">
