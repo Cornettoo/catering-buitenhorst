@@ -25,7 +25,7 @@ function create_redvine_assortment() {
         'hierarchical' => false,
         'menu_position' => 20,
         'has_archive' => false,
-        'rewrite' => ['slug' => 'assortiment/%assortment-categories%'],
+        'rewrite' => ['slug' => 'assortiment-old/%assortment-categories%'],
         'supports' => ['title','thumbnail','revisions', 'editor', 'page-attributes']
     ];
     register_post_type('assortment', $args);
@@ -40,7 +40,7 @@ register_taxonomy('assortment-categories',
             'add_new_item'=>'Nieuwe categorie'
         ],
         'singular_label' => __( 'Field' ),
-        'rewrite' => ['slug' => 'assortiment'],
+        'rewrite' => ['slug' => 'assortiment-old'],
     ]
 );
 

@@ -107,6 +107,7 @@ jQuery(function ($) {
 		}, 4000);
 	});
 
+	$('.woocommerce-variation.single_variation').appendTo('.wapf-wrapper');
 });
 
 // Import files

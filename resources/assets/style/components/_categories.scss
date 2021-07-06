@@ -43,6 +43,12 @@
 
 			.price {
 				margin-left: 1rem;
+
+				span {
+					&:first-child:not(:last-child) {
+						text-decoration: line-through;
+					}
+				}
 			}
 
 			h3 {
@@ -120,14 +126,7 @@
 		font-size: 2.1rem;
 	}
 
-	span {
-		&:not(:only-child):first-child {
-			text-decoration: line-through;
-			font-size: 1.5rem;
-
-			@include media-breakpoint-up(lg) {
-				font-size: 1.8rem;
-			}
-		}
+	ins {
+		text-decoration: unset;
 	}
 }

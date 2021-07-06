@@ -27,7 +27,7 @@ if (is_cart() || is_checkout() || is_account_page()) {
 	<section class="section <?php if (is_cart() || is_checkout()) { ?>cart-checkout<?php } else { ?>account<?php } ?> padding-top--large padding-bottom--large">
 		<div class="container">
 			<?php 
-			if (is_cart() || is_checkout()) {
+			if (is_cart()) {
 				?>
 				<h1><?php the_title(); ?></h1>
 				<?php

@@ -4,3 +4,12 @@ Version: 1.0
 
 Author: Corne Huisman
 */
+
+table.ui-datepicker-calendar tr td:first-child {
+ 	border-right: none !important;
+	padding-right: 0 !important;
+}
+
+table.ui-datepicker-calendar tr td:last-child {
+ 	padding-left: 0 !important; 
+}

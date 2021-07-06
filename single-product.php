@@ -3,6 +3,13 @@ get_header();
 
 $image = get_field('image');
 $header_image = get_field('header_image');
+
+global $product;
+
+$attribute_keys  = array_keys( $attributes );
+$variations_json = wp_json_encode( $available_variations );
+$variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+
 ?>
 <header class="header header--image" style="background-image: url(<?= $header_image['url']; ?>)"></header>
 <div class="slider-list-wrapper">
@@ -22,6 +29,7 @@ $header_image = get_field('header_image');
 
 <section class="image-text-product padding-top--large padding-bottom--large">
 	<div class="container">
+	
 		<div class="row">
 			<div class="col-12 col-md-6 col-lg-5 image-text__col-image">
 				<figure class="img">
@@ -77,7 +85,37 @@ $header_image = get_field('header_image');
 					?>
 				</table>
 
-				<div class="prices__wrapper">
+				<?php
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+				add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+				add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+				add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+				remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+
+				do_action( 'woocommerce_single_product_summary' );
+		 		?>
+
+		 		<div class="wc-checks list--check">
+					<ul>
+						<?php	
+						if( have_rows('vinkjes_product') ): 
+							while( have_rows('vinkjes_product') ): the_row(); ?>
+								<li><?php the_sub_field('tekst_bij_vinkje_product'); ?></li>
+							<?php
+							endwhile; 
+						else:
+							while (have_rows('vinkjes', 'options')) : the_row(); ?>
+								<li><?php the_sub_field('tekst_bij_vinkje'); ?></li>
+							<?php
+							endwhile;
+						endif; 
+						?>
+					</ul>
+		 		</div>
+
+				<!-- <div class="prices__wrapper">
 					<?php 
 					$product = wc_get_product($post->ID);
 					$variationId = $product->get_variation_id();
@@ -143,8 +181,9 @@ $header_image = get_field('header_image');
 							<?php _e('Product is toegevoegd aan de winkelmand', 'accepta'); ?>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
+
 		</div>
 	</div>
 </section>
@@ -218,4 +257,5 @@ if ($products) :
     </section>
     <?php
 endif;
-get_footer();
+get_footer(); ?>
+
