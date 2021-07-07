@@ -18,13 +18,12 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-do_action( 'woocommerce_before_customer_login_form' ); ?>
+?>
 
 <?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
 
 <div class="u-columns col2-set" id="customer_login">
-
+	<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 	<div class="login_form">
 <?php endif; ?>
 

@@ -121,7 +121,7 @@ function checkout_datepicker_custom_field_validation( $data, $errors ) {
     $field_id = 'my_datepicker';
 
     if ( isset($_POST[$field_id]) && empty($_POST[$field_id]) ) {
-        $errors->add( 'validation', __('You must choose a date on datepicker field.', 'woocommerce') ); 
+        $errors->add( 'validation', __('Selecteer een leverdatum', 'woocommerce') ); 
     }
 }
 
@@ -184,25 +184,30 @@ function display_date_custom_field_value_on_order_item_totals( $total_rows, $ord
  * @return array
  */
 function my_hide_shipping_when_free_is_available( $rates ) {
-    $free = array();
-    foreach ( $rates as $rate_id => $rate ) {
-        if ( 'free_shipping' === $rate->method_id ) {
-            $free[ $rate_id ] = $rate;
-            break;
-        }
-    }
-    return ! empty( $free ) ? $free : $rates;
+	$free = array();
+	$freeActive = false;
+
+	foreach ( $rates as $rate_id => $rate ) {
+		if ('free_shipping' === $rate->method_id) {
+			$freeActive = true;
+		}
+	}
+
+	if ($freeActive) {
+		foreach ( $rates as $rate_id => $rate ) {
+			if ('free_shipping' === $rate->method_id || 'local_pickup' === $rate->method_id) {
+				$free[ $rate_id ] = $rate;
+			}
+		}
+	}
+
+	return ! empty( $free ) ? $free : $rates;
 }
 add_filter( 'woocommerce_package_rates', 'my_hide_shipping_when_free_is_available', 100 );
 
 
 // Remove WC styles
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-
-// Add theme support
-function accepta_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-}
 
 add_filter( 'woocommerce_default_address_fields', 'ac_remove_fields' );
 function ac_remove_fields( $fields ) {

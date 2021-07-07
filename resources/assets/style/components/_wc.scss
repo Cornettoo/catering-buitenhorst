@@ -43,10 +43,10 @@
 	background-color: $color-third;
 	transition: .3s opacity $ease;
 
-	li {
-		display: flex;
-		flex-flow: column-reverse;
-	}
+	// li {
+	// 	display: flex;
+	// 	flex-flow: column-reverse;
+	// }
 
 	.button {
 		padding: 0;
@@ -380,6 +380,11 @@
 		td {
 			padding: 1rem 0;
 		}
+
+		td:last-child {
+			vertical-align: top;
+			padding-left: 7%;
+		}
 	}
 
 	abbr.required {
@@ -400,6 +405,8 @@
 	}
 
 	.woocommerce-checkout-payment {
+		margin-top: 2rem;
+		
 		ul {
 			padding: 0;
 
@@ -493,7 +500,7 @@
 		cursor: pointer;
 	}
 
-	input,
+	input:not([type=checkbox]),
 	textarea {
 		width: 100%;
 		padding: 0.9rem 1.4rem;
@@ -520,11 +527,20 @@
 	width: 100%;
 	display: flex;
 	flex-flow: wrap;
+	justify-content: space-between;
+	margin: 0 auto;
+
+	@include media-breakpoint-up(xl) {
+		width: 70%;
+	}
+
+	.woocommerce-notices-wrapper {
+		margin-bottom: 2rem;
+	}
 }
 
 .login_form,
 .register_form {
-	margin: 0 auto;
 	width: 100%;
 
 	@include media-breakpoint-up(md) {
@@ -624,6 +640,11 @@
 			display: none;
 		}
 	}
+
+}
+
+.woocommerce-error {
+	border: 1px solid red;
 }
 
 .woocommerce-Addresses {
@@ -804,6 +825,7 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders {
 .woocommerce-table,
 .woocommerce-orders-table {
 	tr {
+
 		&:not(:last-child),
 		&:only-child {
 			border-bottom: 1px solid #cacaca;
@@ -811,7 +833,9 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders {
 	}
 
 	.wc-item-meta {
-		strong, p {
+
+		strong,
+		p {
 			display: inline-block;
 		}
 
@@ -823,4 +847,68 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders {
 
 .return-to-shop {
 	width: 100%;
+}
+
+.woocommerce-form-login-toggle {
+	margin-bottom: 2rem;
+}
+
+.cart-checkout .woocommerce-form-login {
+	width: 100%;
+	background-color: $color-third;
+	border-radius: 1.4rem;
+	padding: 2rem;
+	margin-bottom: 3rem;
+
+	@include media-breakpoint-up(lg) {
+		padding: 3rem;
+	}
+
+	label {
+		display: block;
+	}
+
+	input:not([type=checkbox]) {
+		min-width: 27rem;
+		padding: 0.9rem 1.4rem;
+		border-radius: 1rem;
+		color: black;
+		border: 1px solid #bababa;
+		outline: 0;
+	}
+
+	.lost_password {
+		margin-bottom: 0;
+	}
+}
+
+.wc_payment_methods {
+	select {
+		width: 100%;
+	}
+}
+
+#shipping_method {
+	li:only-child label::before {
+		background-color: $color-primary;
+	}
+}
+
+.checkout {
+	.mollie-gateway-icon svg, label .mollie-gateway-icon {
+		width: 4rem;
+		height: auto;
+		float: left;
+		margin-right: 1rem;
+	}
+
+	.payment_box {
+		margin-top: 1rem;
+
+		p {
+			&:first-child {
+				display: none;
+			}
+		}
+	}
 }

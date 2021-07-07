@@ -565,6 +565,7 @@ ul {
 	&.button--primary,
 	&.single_add_to_cart_button,
 	&.checkout-button,
+	&.woocommerce-form-login__submit,
 	&#place_order {
 		background-color: $color-primary;
 
