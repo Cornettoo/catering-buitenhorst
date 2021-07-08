@@ -883,6 +883,10 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders {
 }
 
 .wc_payment_methods {
+	label {
+		cursor: pointer;
+	}
+	
 	select {
 		width: 100%;
 	}

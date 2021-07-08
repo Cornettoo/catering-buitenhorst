@@ -3,14 +3,14 @@ require_once(__DIR__ . '/includes/autoload.php');
 
 function add_js_and_css() {
     global $wp_scripts;
-    wp_enqueue_style( 'global', get_template_directory_uri() . '/dist/style/bundle.css', [], '1.0.5' );
+    wp_enqueue_style( 'global', get_template_directory_uri() . '/dist/style/bundle.css', [], '2.0.0' );
 }
 add_action( 'wp_enqueue_scripts', 'add_js_and_css' );
 
 function footer_enqueue() {
-    wp_enqueue_script( 'flickity', get_template_directory_uri(). '/libs/flickity.min.js', ['jquery'], '1.0.0' );
-    wp_enqueue_script( 'video', get_template_directory_uri(). '/libs/video.min.js', ['jquery'], '1.0.0' );
-    wp_enqueue_script( 'script', get_template_directory_uri(). '/dist/script/bundle.js', ['jquery'], '1.0.0' );
+    wp_enqueue_script( 'flickity', get_template_directory_uri(). '/libs/flickity.min.js', ['jquery'], '2.0.0' );
+    wp_enqueue_script( 'video', get_template_directory_uri(). '/libs/video.min.js', ['jquery'], '2.0.0' );
+    wp_enqueue_script( 'script', get_template_directory_uri(). '/dist/script/bundle.js', ['jquery'], '2.0.0' );
 }
 add_action('wp_footer', 'footer_enqueue');
 	
@@ -93,7 +93,7 @@ function datepicker_custom_field($checkout) {
     woocommerce_form_field($datepicker_slug, array(
         'type' => 'text',
         'class'=> array( 'form-row-first my-datepicker'),
-        'label' => __('Selecteer een leverdatum'),
+        'label' => __('Selecteer een leverdatum/afhaaldatum'),
         'required' => true, // Or false
     ), '' );
 
@@ -108,7 +108,10 @@ function datepicker_custom_field($checkout) {
         $(a).datepicker({
             dateFormat: 'dd-mm-yy', // ISO formatting date
             minDate: +1,
-				beforeShowDay: $.datepicker.noWeekends
+				beforeShowDay: function(date) {
+					var day = date.getDay();
+					return [(day != 0), ''];
+				}
         });
     });
     </script>
@@ -215,18 +218,18 @@ function ac_remove_fields( $fields ) {
 	return $fields;
 }
 
-add_filter('wc_price_args', 'sw_change_price_html');
 
-function sw_change_price_html($args) {
+// add_filter('wc_price_args', 'sw_change_price_html');
+// function sw_change_price_html($args) {
 
-    global $product;
-    if (!is_object( $product)) 
-        $product = wc_get_product( get_the_ID() );
-    if( is_single() && $product && ($product->is_type('simple') || $product->is_type('variation')) )
-        $args['price_format'] = str_replace('%2$s','<span class="wapf-p">%2$s</span>',$args['price_format']);
+//     global $product;
+//     if (!is_object( $product)) 
+//         $product = wc_get_product( get_the_ID() );
+//     if( is_single() && $product && ($product->is_type('simple') || $product->is_type('variation')) )
+//         $args['price_format'] = str_replace('%2$s','<span class="wapf-p">%2$s</span>',$args['price_format']);
 
-    return $args;
-}
+//     return $args;
+// }
 
 add_action('wp_footer','sw_add_wapf_scripts');
 

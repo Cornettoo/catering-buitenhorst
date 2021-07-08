@@ -1,15 +1,12 @@
 <?php 
 get_header(); 
-
-$image = get_field('image');
-$header_image = get_field('header_image');
-
 global $product;
 
-$attribute_keys  = array_keys( $attributes );
-$variations_json = wp_json_encode( $available_variations );
-$variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
-
+$productImage = get_the_post_thumbnail_url($post->ID, 'large');
+$header_image = get_field('header_image');
+// $attribute_keys  = array_keys( $attributes );
+// $variations_json = wp_json_encode( $available_variations );
+// $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
 ?>
 <header class="header header--image" style="background-image: url(<?= $header_image['url']; ?>)"></header>
 <div class="slider-list-wrapper">
@@ -33,7 +30,7 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
 		<div class="row">
 			<div class="col-12 col-md-6 col-lg-5 image-text__col-image">
 				<figure class="img">
-					<img src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>">
+					<img src="<?= $productImage; ?>" alt="<?php the_title(); ?>">
 				</figure>
 			</div>
 			<div class="col-12 col-md-6 col-xl-5 image-text__col-text">
@@ -116,65 +113,6 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
 		 		</div>
 
 				<!-- <div class="prices__wrapper">
-					<?php 
-					$product = wc_get_product($post->ID);
-					$variationId = $product->get_variation_id();
-					$variableProduct = new WC_Product_Variable($variationId);
-					$variations = $variableProduct->get_available_variations();
-					
-					if ($variations) {
-						foreach ($variations as $variation) {
-							?>
-							<div class="prices__wrapper__item">
-								<p><?= $variation['attributes']['attribute_pa_aantal-personen'] ?> Personen</p>
-								<p class="price">
-									<?php
-									if ($variation['display_price'] != $variation['display_regular_price']) {
-										?>
-										<span>€ <?= number_format($variation['display_price'], 2, ',', ' '); ?></span>
-										<?php
-									}
-									?>
-									<span>€ <?= number_format($variation['display_regular_price'], 2, ',', ' '); ?></span>
-								</p>
-							</div>
-							<?php
-						}
-						?>
-						<div id="add-variant" class="add_to_cart_select">
-							<div class="select">
-								<select name="" id="">
-									<?php
-									foreach ($variations as $variation) {
-										?>
-										<option value="<?= $variation['variation_id'] ?>"><?= $variation['attributes']['attribute_pa_aantal-personen'] ?> Personen</option>
-										<?php
-									}
-									?>
-								</select>
-							</div>
-							<a href="<?php echo $product->add_to_cart_url() ?>" class="button button--primary ajax_add_to_cart add_to_cart_button" data-product_id="2345" data-product_sku="<?php echo esc_attr($sku) ?>" aria-label="Voeg <?php the_title_attribute() ?> toe aan je winkelmand"> <?php _e('In winkelmand', 'accepta'); ?></a>
-						</div>
-						<?php
-					} else {
-						?>
-						<div class="prices__wrapper__item">
-							<p class="price">
-								<span>€ <?= $product->regular_price; ?></span>
-								<?php
-								if ($product->sale_price) {
-									?>
-									<span>€ <?= $product->sale_price; ?></span>
-									<?php
-								}
-								?>
-							</p>
-							<a href="<?php echo $product->add_to_cart_url() ?>" class="button button--primary ajax_add_to_cart add_to_cart_button" data-product_id="<?php echo get_the_ID(); ?>" data-product_sku="<?php echo esc_attr($sku) ?>" aria-label="Voeg <?php the_title_attribute() ?> toe aan je winkelmand"> <?php _e('In winkelmand', 'accepta'); ?></a>
-						</div>
-						<?php
-					}
-					?>
-
 					<div class="notifications">
 						<?php do_action( 'woocommerce_before_single_product' ); ?>
 						<div class="notifications__succes">
@@ -210,7 +148,7 @@ if ($products) :
 						 $image = $image = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'single-post-thumbnail');
 		 
 						 $wcProduct = wc_get_product($id);
-						 $variationId = $wcProduct->get_variation_id();
+						 $variationId = $wcProduct->get_id();
 						 $variableProduct = new WC_Product_Variable($variationId);
 						 $variations = $variableProduct->get_available_variations();
 						 ?>
@@ -218,7 +156,7 @@ if ($products) :
 							 <div class="categories__item">
 								 <a href="<?= get_permalink($id); ?>">
 									<figure class="img">
-										 <img src="<?php  echo $image[0]; ?>">
+										 <img src="<?php echo $image[0]; ?>">
 									 </figure>
 									 <div class="categories__item__title product">
 										 <h3><?= get_the_title($id); ?></h3>

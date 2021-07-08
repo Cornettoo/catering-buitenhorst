@@ -16,7 +16,7 @@ $padding_bottom = get_sub_field('padding_bottom');
 				$image = get_the_post_thumbnail($id);
 
 				$wcProduct = wc_get_product($id);
-				$variationId = $wcProduct->get_variation_id();
+				$variationId = $wcProduct->get_id();
 				$variableProduct = new WC_Product_Variable($variationId);
 				$variations = $variableProduct->get_available_variations();
 				?>
